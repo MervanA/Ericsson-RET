@@ -1,17 +1,17 @@
 ## AMOS|MOSHELL script to create RET Unit on Ericsson BaseBand Nodes
 
-## script was written to Standarize RET implementation, verify and minimize user inputs and errors
+script was written to Standarize RET implementation, verify and minimize user inputs and errors
 
-## Script Name: define_RET.mos
+Script Name: define_RET.mos
 
-## Update date: 19.05.2021
+Update date: 19.05.2021
 
-## make sure netconf files are in the correct PATH
+make sure netconf files are in the correct PATH
 
-## Written by Mervan AbuGhosh MervanA@git
+### Written by Mervan AbuGhosh MervanA@git
 
 
-### SYNTAX:
+## SYNTAX:
 run /PATH/TO/SCRIPT.mos SITESECTOR,RADIO,DIR,CONFIGID or run /PATH/TO/SCRIPT.mos --help
 
 Input must be 4 fields seperated by ","
