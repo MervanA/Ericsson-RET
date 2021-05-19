@@ -8,9 +8,6 @@ Update date: 19.05.2021
 
 make sure netconf files are in the correct PATH
 
-### Written by Mervan AbuGhosh MervanA@git
-
-
 ## SYNTAX:
 run /PATH/TO/SCRIPT.mos SITESECTOR,RADIO,DIR,CONFIGID or run /PATH/TO/SCRIPT.mos --help
 
