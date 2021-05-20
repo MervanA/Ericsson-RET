@@ -87,7 +87,7 @@ if $split_last != 4 && $input[1] !~ --help
   unset small
   l-
   return
-else if  $split_last != 8 && $input[1] ~ --help
+else if  $split_last != 4 && $input[1] ~ --help
   //getline used to bring echo $0 output as input which is the command/script used to run this file
   $mos = `$gawk 'BEGIN{("echo $0") | getline; print $2; close("echo $0")}'`
   //printout between lines 10 and 51 of the file $mos and delete leading backslashes
