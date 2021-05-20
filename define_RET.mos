@@ -7,8 +7,8 @@
 //  
 //  make sure netconf files are in the correct PATH
 //  Written by Mervan AbuGhosh MervanA@git
-//=======================================================================================
 //
+//=======================================================================================
 //SYNTAX:
 //  run /PATH/TO/SCRIPT.mos SITESECTOR,RADIO,DIR,CONFIGID
 //  or
@@ -53,10 +53,11 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 l+mmo /dev/null
+uv sort_proxy=1
 confbdl+
-$logpath := /PATH/TO/RET/logs
-$netconfs := /PATH/TO/RET/netconfs
-$scripts := /PATH/TO/RET/scripts
+$logpath := /home/shared/erc_os/scripts_4g/RET/logs
+$netconfs := /home/shared/erc_os/scripts_4g/RET/netconfs
+$scripts := /home/shared/erc_os/scripts_4g/RET/scripts
 ####################################
 ## value COMMAND INPUT
 ####################################
@@ -95,7 +96,7 @@ else if  $split_last != 8 && $input[1] ~ --help
   l-
   return
 else
-  ! $gawk -v NN="$nodename" 'BEGIN{printf "%s\t%s\n%s\t%s\n%s\n\n", "SITE:", NN, "INPUT:", "$allinput", strftime("%F_%T")}' | tee -a $logpath/$nodename_RETinput.log
+  ! $gawk -v NN="$nodename" 'BEGIN{printf "\n%s\t%s\n%s\t%s\n%s\n\n", "SITE:", NN, "INPUT:", "$allinput", strftime("%F_%T")}' | tee -a $logpath/$nodename_RETinput.log
 fi
 
 
@@ -150,8 +151,7 @@ unset $check
 ## verify DIR
 ####################################
 $DIRlen = `$gawk -v DR="$input[3]" 'BEGIN{print length(DR)}'`
-$DIRval = $input[3]
-if $DIRlen > 3 || $DIRval > 360 || $DIRval < 0
+if $DIRlen > 3
   ! echo ""
   ! echo "======================================================================================="
   ! echo ""
@@ -280,8 +280,10 @@ if $UNIT ~ [2|4]$
   cr Equipment=1,AntennaUnitGroup=$UNIT,AntennaUnit=1,AntennaSubunit=1,AuPort=4
   set Equipment=1,AntennaUnitGroup=$UNIT,RfBranch=3 auPortRef Equipment=1,AntennaUnitGroup=$UNIT,AntennaUnit=1,AntennaSubunit=1,AuPort=3
   set Equipment=1,AntennaUnitGroup=$UNIT,RfBranch=4 auPortRef Equipment=1,AntennaUnitGroup=$UNIT,AntennaUnit=1,AntennaSubunit=1,AuPort=4
-  del AntennaSubunit=[^1]
 fi
+del AntennaUnitGroup=$UNIT,AntennaUnit=1,AntennaSubunit=[^1]
+lu AuPort|RetSubUnit|AntennaNearUnit|AntennaSubunit|AntennaUnitGroup
+lt AuPort|RetSubUnit|AntennaNearUnit|AntennaSubunit|AntennaUnitGroup
 
 
 ####################################
