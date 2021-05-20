@@ -9,8 +9,9 @@ Update date: 19.05.2021
 make sure netconf files are in the correct PATH
 
 ## SYNTAX:
+```bash
 run /PATH/TO/SCRIPT.mos [<SITESECTOR>,<RADIO>,<DIR>,<CONFIGID>|<--help>]
-
+```
 Input must be 4 fields seperated by ","
 
 SITESECTOR,RADIO,DIR,CONFIGID
