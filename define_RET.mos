@@ -10,9 +10,9 @@
 //
 //=======================================================================================
 //SYNTAX:
-//  run /PATH/TO/SCRIPT.mos SITESECTOR,RADIO,DIR,CONFIGID
+//  run /PATH/TO/define_RET.mos SITESECTOR,RADIO,DIR,CONFIGID
 //  or
-//  run /PATH/TO/SCRIPT.mos --help
+//  run /PATH/TO/define_RET.mos --help
 //
 //Input:
 //  Input must be 4 fields seperated by ","
@@ -55,9 +55,9 @@
 l+mmo /dev/null
 uv sort_proxy=1
 confbdl+
-$logpath := /home/shared/erc_os/scripts_4g/RET/logs
-$netconfs := /home/shared/erc_os/scripts_4g/RET/netconfs
-$scripts := /home/shared/erc_os/scripts_4g/RET/scripts
+$logpath := /PATH/TO/RET/logs
+$netconfs := /PATH/TO/RET/netconfs
+$scripts := /PATH/TO/RET/scripts
 ####################################
 ## value COMMAND INPUT
 ####################################
@@ -82,7 +82,7 @@ if $split_last != 4 && $input[1] !~ --help
   ! echo "        AZIMUTH/DIR     : Antenna Direction, use d for default value"
   ! echo "        CONFIGID        : Antenna Model configuration ID, check the list from below command"
   ! echo ""
-  ! echo "type "run /PATH/TO/SCRIPT.mos --help" for more Information "
+  ! echo "type "run /home/shared/erc_os/scripts_4g/RET/define_RET.mos --help" for more Information "
   ! echo "======================================================================================="
   unset small
   l-
@@ -276,8 +276,12 @@ fi
 
 ### from ... to ABB4_1A
 if $UNIT ~ [2|4]$
+  cr Equipment=1,AntennaUnitGroup=$UNIT,AntennaUnit=1,AntennaSubunit=1,AuPort=1
+  cr Equipment=1,AntennaUnitGroup=$UNIT,AntennaUnit=1,AntennaSubunit=1,AuPort=2
   cr Equipment=1,AntennaUnitGroup=$UNIT,AntennaUnit=1,AntennaSubunit=1,AuPort=3
   cr Equipment=1,AntennaUnitGroup=$UNIT,AntennaUnit=1,AntennaSubunit=1,AuPort=4
+  set Equipment=1,AntennaUnitGroup=$UNIT,RfBranch=1 auPortRef Equipment=1,AntennaUnitGroup=$UNIT,AntennaUnit=1,AntennaSubunit=1,AuPort=1
+  set Equipment=1,AntennaUnitGroup=$UNIT,RfBranch=2 auPortRef Equipment=1,AntennaUnitGroup=$UNIT,AntennaUnit=1,AntennaSubunit=1,AuPort=2
   set Equipment=1,AntennaUnitGroup=$UNIT,RfBranch=3 auPortRef Equipment=1,AntennaUnitGroup=$UNIT,AntennaUnit=1,AntennaSubunit=1,AuPort=3
   set Equipment=1,AntennaUnitGroup=$UNIT,RfBranch=4 auPortRef Equipment=1,AntennaUnitGroup=$UNIT,AntennaUnit=1,AntennaSubunit=1,AuPort=4
 fi
@@ -289,6 +293,7 @@ lt AuPort|RetSubUnit|AntennaNearUnit|AntennaSubunit|AntennaUnitGroup
 ####################################
 ## RUN
 ####################################
+unset all
 confbdl-
 l-
 l+s $logpath/$nodename_RETinput.log
