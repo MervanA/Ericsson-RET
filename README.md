@@ -8,16 +8,17 @@ Update date: 19.05.2021
 
 make sure netconf files are in the correct PATH
 
-### Written by Mervan AbuGhosh MervanA@git
+## SYNTAX
 
-
-## SYNTAX:
-run /PATH/TO/SCRIPT.mos SITESECTOR,RADIO,DIR,CONFIGID or run /PATH/TO/SCRIPT.mos --help
+```bash
+run /PATH/TO/SCRIPT.mos [<SITESECTOR>,<RADIO>,<DIR>,<CONFIGID>][--help][--lookup <ANTENNAID>]
+```
 
 Input must be 4 fields seperated by ","
 
 SITESECTOR,RADIO,DIR,CONFIGID
 
+```text
     1)SITESECTOR      :is 6 characters, 5 is siteId and last is Sector indicator
     2)RADIO           :is the Radio unit's ID with rfport=R used to power the RET, if ID provided is not configured on site script will fail.
     3)AZIMUTH/DIR     :can not be more than 3 characters and value d can be used to set default value of "XXX"
@@ -47,3 +48,4 @@ SITESECTOR,RADIO,DIR,CONFIGID
       8B          AOC4518R13v06    HUAWEI      8x
       8C          AMB4519R18v06    HUAWEI      8x
       8D          065R15M18JKD     Comba-ODI   8x
+```
