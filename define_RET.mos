@@ -132,7 +132,7 @@ ma sectorunit FieldReplaceableUnit=[^1|SUP|BB].+$
 for $mo in sectorunit
   $UNITRDN = rdn($mo)
   $UNIT = `$gawk -v UN="$UNITRDN" 'BEGIN{print gensub(/.*-/,"",1,UN)}'`
-  if $UNIT ~ $input[2]
+  if $UNIT = $input[2]
     $check = 1
     break
   fi
