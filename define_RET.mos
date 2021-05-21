@@ -2,17 +2,17 @@
 //  AMOS|MOSHELL script to create RET Unit on Ericsson BaseBand Nodes
 //  script was written to Standarize RET implementation, verify and minimize user inputs and errors
 //  Script Name: define_RET.mos
-//  Update date: 19.05.2021
-//  Updates: 
-//  
+//  Update date: 21.05.2021
+//
 //  make sure netconf files are in the correct PATH
 //  Written by Mervan AbuGhosh MervanA@git
-//=======================================================================================
 //
+//=======================================================================================
 //SYNTAX:
-//  run /PATH/TO/SCRIPT.mos SITESECTOR,RADIO,DIR,CONFIGID
+//  run /PATH/TO/RET/define_RET.mos SITESECTOR,RADIO,DIR,CONFIGID
 //  or
-//  run /PATH/TO/SCRIPT.mos --help
+//  run /PATH/TO/RET/define_RET.mos --help
+//  run /PATH/TO/RET/define_RET.mos --lookup ANTENNAID
 //
 //Input:
 //  Input must be 4 fields seperated by ","
@@ -53,6 +53,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 l+mmo /dev/null
+uv sort_proxy=1
 confbdl+
 $logpath := /PATH/TO/RET/logs
 $netconfs := /PATH/TO/RET/netconfs
@@ -60,33 +61,13 @@ $scripts := /PATH/TO/RET/scripts
 ####################################
 ## value COMMAND INPUT
 ####################################
-$allinput := $1
-$split_separator = ,
-$input = split($allinput)
-unset $split_separator
-if $split_last != 4 && $input[1] !~ --help
-  ! echo ""
-  ! echo "======================================================================================="
-  ! echo ""
-  ! echo "Invalid Input!!"
-  ! echo ""
-  ! echo "Input:"
-  ! echo "      SITESECTOR,RADIO,DIR,CONFIGID"
-  ! echo "Example:"
-  ! echo "        SOGOF1,S4C2,000,8D"
-  ! echo ""
-  ! echo "Input Value Information:"
-  ! echo "        SITESECTOR      : Antenna Serving Site and Sector IDs"
-  ! echo "        RADIO           : RET cable connected Radio Unit"
-  ! echo "        AZIMUTH/DIR     : Antenna Direction, use d for default value"
-  ! echo "        CONFIGID        : Antenna Model configuration ID, check the list from below command"
-  ! echo ""
-  ! echo "type "run /PATH/TO/SCRIPT.mos --help" for more Information "
-  ! echo "======================================================================================="
-  unset small
-  l-
-  return
-else if  $split_last != 8 && $input[1] ~ --help
+$all_input := $1
+$all_pattern = ^[A-Z0-9][A-Z0-9][A-Z0-9][A-Z0-9][A-Z0-9][A-Z0-9],S.+,.+,..$
+if $all_input ~ $all_pattern
+  $split_separator = ,
+  $input = split($all_input)
+  unset $split_separator
+else if $all_input ~ --help
   //getline used to bring echo $0 output as input which is the command/script used to run this file
   $mos = `$gawk 'BEGIN{("echo $0") | getline; print $2; close("echo $0")}'`
   //printout between lines 10 and 51 of the file $mos and delete leading backslashes
@@ -94,8 +75,32 @@ else if  $split_last != 8 && $input[1] ~ --help
   unset small
   l-
   return
+else if $all_input ~ --lookup
+  $input = split($all_input)
+  $lookup = $2
+  ! echo ""
+  ! echo "======================================================================================="
+  ! $gawk 'NR==1; /$lookup/{print}' $netconfs/configTable.txt
+  ! echo "======================================================================================="
+  unset small
+  l-
+  return
+else if $all_input ~ ^$ || $all_input !~ $all_pattern || $all_input !~ --lookup || $all_input !~ --help
+  ! echo ""
+  ! echo "======================================================================================="
+  ! echo ""
+  ! echo "Invalid Syntax!!"
+  ! echo ""
+  ! echo "Valid Syntax:"
+  ! echo "run /PATH/TO/RET/define_RET.mos SITE1,S1C1,D,1X"
+  ! echo "run /PATH/TO/RET/define_RET.mos --lookup 065R15M18JKD"
+  ! echo "run /PATH/TO/RET/define_RET.mos --help"
+  ! echo "======================================================================================="
+  unset small
+  l-
+  return
 else
-  ! $gawk -v NN="$nodename" 'BEGIN{printf "%s\t%s\n%s\t%s\n%s\n\n", "SITE:", NN, "INPUT:", "$allinput", strftime("%F_%T")}' | tee -a $logpath/$nodename_RETinput.log
+  ! $gawk -v NN="$nodename" 'BEGIN{printf "\n%s\t%s\n%s\t%s\n%s\n\n", "SITE:", NN, "INPUT:", "$all_input", strftime("%F_%T")}' | tee -a $logpath/$nodename_RETinput.log
 fi
 
 
@@ -143,6 +148,7 @@ if $check != 1
   l-
   return
 fi
+mr sectorunit
 unset $check
 
 
@@ -150,13 +156,12 @@ unset $check
 ## verify DIR
 ####################################
 $DIRlen = `$gawk -v DR="$input[3]" 'BEGIN{print length(DR)}'`
-$DIRval = $input[3]
-if $DIRlen > 3 || $DIRval > 360 || $DIRval < 0
+if $DIRlen > 3 || $input[3] ~ ^$
   ! echo ""
   ! echo "======================================================================================="
   ! echo ""
   ! echo "Are you sure antenna is not looking at the moon ?"
-  ! echo "use d as input if value is unknown"
+  ! echo "use d or D as input if value is unknown"
   ! echo ""
   ! echo "======================================================================================="
   unset small
@@ -166,12 +171,12 @@ fi
 if $input[3] ~ [x|X|d|D]
   $DIR = XXX
 else
-  $DIR = `$gawk -v DR="$input[3]" 'BEGIN{if (length(DR)==1) print "00"DR; else if (length(DR)==2) print "0"DR; else print DR}'`
+  $DIR = `$gawk -v DR="$input[3]" 'BEGIN{if (length(DR)==1) print "00"DR; else if (length(DR)==2) print "0"DR; else if (DR>360) print "XXX"; else print DR}'`
 fi
 
 
 ####################################
-## verify CONFIGID
+## SUPPORTING FUNCTIONS
 ####################################
 func singelSerial_FUNC
   for 10
@@ -181,7 +186,7 @@ func singelSerial_FUNC
     ! echo ""
     $serialx = readinput(please provide ARETU Serial Number:  )
     $retIdx = readinput(please provide the RET Id:  )
-    if $serial !~ ^$ || $retIdx !~
+    if $serialx !~ ^$ && $retIdx ~ ^RET[1-8][0-6]?$
        break
     fi
   done
@@ -202,21 +207,38 @@ func dualSerial_FUNC
 endfunc
 
 ###
+func fixABB_FUNC
+  if $noOfTx = 4 || $noOfRf = 4
+    cr Equipment=1,AntennaUnitGroup=$UNIT,AntennaUnit=1,AntennaSubunit=1,AuPort=1
+    cr Equipment=1,AntennaUnitGroup=$UNIT,AntennaUnit=1,AntennaSubunit=1,AuPort=2
+    cr Equipment=1,AntennaUnitGroup=$UNIT,AntennaUnit=1,AntennaSubunit=1,AuPort=3
+    cr Equipment=1,AntennaUnitGroup=$UNIT,AntennaUnit=1,AntennaSubunit=1,AuPort=4
+    set Equipment=1,AntennaUnitGroup=$UNIT,RfBranch=1 auPortRef Equipment=1,AntennaUnitGroup=$UNIT,AntennaUnit=1,AntennaSubunit=1,AuPort=1
+    set Equipment=1,AntennaUnitGroup=$UNIT,RfBranch=2 auPortRef Equipment=1,AntennaUnitGroup=$UNIT,AntennaUnit=1,AntennaSubunit=1,AuPort=2
+    set Equipment=1,AntennaUnitGroup=$UNIT,RfBranch=3 auPortRef Equipment=1,AntennaUnitGroup=$UNIT,AntennaUnit=1,AntennaSubunit=1,AuPort=3
+    set Equipment=1,AntennaUnitGroup=$UNIT,RfBranch=4 auPortRef Equipment=1,AntennaUnitGroup=$UNIT,AntennaUnit=1,AntennaSubunit=1,AuPort=4
+  fi
+endfunc
+
+
+####################################
+## verify CONFIGID
+####################################
 if $input[4] ~ (2A|2A|2B|2D|3A|3B|3B|3B|3C|4A|4A|4B|4B|4C|4D|4E|6A|6B|8B|8C|8D)
   $check = 1
   $xmlFile = $input[4]_netconf.xml
 else if $input[4] ~ (1X)
   $check = 1
-  $xmlFile = $input[4]_netconf.xml
+  $xmlFile = 1X_netconf.xml
   singelSerial_FUNC
 else if $input[4] ~ (2C)
   $check = 1
-  $xmlFile = $input[4]_netconf.xml
+  $xmlFile = 2C_netconf.xml
   dualSerial_FUNC
 fi
 if $check != 1
-  ! echo "======================================================================================="
   ! echo ""
+  ! echo "======================================================================================="
   ! echo "UNKNOWN ConfigId !"
   ! echo ""
   ! echo "Valid Selections"
@@ -276,12 +298,21 @@ fi
 
 ### from ... to ABB4_1A
 if $UNIT ~ [2|4]$
-  cr Equipment=1,AntennaUnitGroup=$UNIT,AntennaUnit=1,AntennaSubunit=1,AuPort=3
-  cr Equipment=1,AntennaUnitGroup=$UNIT,AntennaUnit=1,AntennaSubunit=1,AuPort=4
-  set Equipment=1,AntennaUnitGroup=$UNIT,RfBranch=3 auPortRef Equipment=1,AntennaUnitGroup=$UNIT,AntennaUnit=1,AntennaSubunit=1,AuPort=3
-  set Equipment=1,AntennaUnitGroup=$UNIT,RfBranch=4 auPortRef Equipment=1,AntennaUnitGroup=$UNIT,AntennaUnit=1,AntennaSubunit=1,AuPort=4
-  del AntennaSubunit=[^1]
+  get SectorCarrier=$UNIT noOfTxAntennas > $noOfTx
+  prs $UNITRDN,RfPort=[^R]
+  $noOfRf = $nr_of_mos
+  fixABB_FUNC
 fi
+
+### AntennaUnit [2,3,4] are the 2nd 3rd and 4th cascaded physical antennas
+del AntennaUnitGroup=$UNIT,AntennaUnit=1,AntennaSubunit=[^1]
+del AntennaUnitGroup=$UNIT,AntennaUnit=2,AntennaSubunit=[^1]
+del AntennaUnitGroup=$UNIT,AntennaUnit=3,AntennaSubunit=[^1]
+del AntennaUnitGroup=$UNIT,AntennaUnit=4,AntennaSubunit=[^1]
+
+### unload and reload Ret related MOs
+lu AuPort|RetSubUnit|AntennaNearUnit|AntennaSubunit|AntennaUnitGroup
+lt AuPort|RetSubUnit|AntennaNearUnit|AntennaSubunit|AntennaUnitGroup
 
 
 ####################################
@@ -295,3 +326,4 @@ netconf $scripts/$nodename_$SITESECTOR.xml
 lt AuPort|RetSubUnit|AntennaNearUnit|AntennaSubunit|AntennaUnitGroup
 hgetm AntennaNearUnit|RetSubUnit iuantAntennaModelNumber|connectionState|operationalState|userLabel|uniqueId|Tilt
 l-
+unset all
