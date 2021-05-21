@@ -55,7 +55,7 @@
                         <AntennaUnit>
                             <antennaUnitId>1</antennaUnitId>
                             <AntennaSubunit>
-                                <antennaSubunitId>1</antennaSubunitId>
+                                <antennaSubunitId>B2</antennaSubunitId>
                                 <retSubunitRef>ManagedElement=1,Equipment=1,AntennaUnitGroup={RADIO},AntennaNearUnit=RET2,RetSubUnit=1</retSubunitRef>
                             </AntennaSubunit>
                         </AntennaUnit>
@@ -80,7 +80,7 @@
                         <AntennaUnit>
                             <antennaUnitId>1</antennaUnitId>
                             <AntennaSubunit>
-                                <antennaSubunitId>R3</antennaSubunitId>
+                                <antennaSubunitId>B3</antennaSubunitId>
                                 <retSubunitRef>ManagedElement=1,Equipment=1,AntennaUnitGroup={RADIO},AntennaNearUnit=RET3,RetSubUnit=1</retSubunitRef>
                             </AntennaSubunit>
                         </AntennaUnit>
