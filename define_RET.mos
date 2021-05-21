@@ -9,10 +9,11 @@
 //
 //=======================================================================================
 //SYNTAX:
-//  run /PATH/TO/RET/define_RET.mos SITESECTOR,RADIO,DIR,CONFIGID
+//  run /mnt/e/Job/RET/Ericsson-RET/define_RET.mos SITESECTOR,RADIO,DIR,CONFIGID
+//  run /mnt/e/Job/RET/Ericsson-RET/define_RET.mos --cascaded
 //  or
-//  run /PATH/TO/RET/define_RET.mos --help
-//  run /PATH/TO/RET/define_RET.mos --lookup ANTENNAID
+//  run /mnt/e/Job/RET/Ericsson-RET/define_RET.mos --help
+//  run /mnt/e/Job/RET/Ericsson-RET/define_RET.mos --lookup ANTENNAID
 //
 //Input:
 //  Input must be 4 fields seperated by ","
@@ -55,9 +56,9 @@
 l+mmo /dev/null
 uv sort_proxy=1
 confbdl+
-$logpath := /PATH/TO/RET/logs
-$netconfs := /PATH/TO/RET/netconfs
-$scripts := /PATH/TO/RET/scripts
+$logpath := /mnt/e/Job/RET/Ericsson-RET/logs
+$netconfs := /mnt/e/Job/RET/Ericsson-RET/netconfs
+$scripts := /mnt/e/Job/RET/Ericsson-RET/scripts
 ####################################
 ## value COMMAND INPUT
 ####################################
@@ -70,8 +71,8 @@ if $all_input ~ $all_pattern
 else if $all_input ~ --help
   //getline used to bring echo $0 output as input which is the command/script used to run this file
   $mos = `$gawk 'BEGIN{("echo $0") | getline; print $2; close("echo $0")}'`
-  //printout between lines 10 and 51 of the file $mos and delete leading backslashes
-  ! $gawk '(FNR>=10 && FNR<=51){gsub(/^\/+/,"");print}' $mos
+  //printout between lines 10 and 52 of the file $mos and delete leading backslashes
+  ! $gawk '(FNR>=10 && FNR<=52){gsub(/^\/+/,"");print}' $mos
   unset small
   l-
   return
@@ -92,9 +93,9 @@ else if $all_input ~ ^$ || $all_input !~ $all_pattern || $all_input !~ --lookup 
   ! echo "Invalid Syntax!!"
   ! echo ""
   ! echo "Valid Syntax:"
-  ! echo "run /PATH/TO/RET/define_RET.mos SITE1,S1C1,D,1X"
-  ! echo "run /PATH/TO/RET/define_RET.mos --lookup 065R15M18JKD"
-  ! echo "run /PATH/TO/RET/define_RET.mos --help"
+  ! echo "run /mnt/e/Job/RET/Ericsson-RET/define_RET.mos SITE1,S1C1,D,1X"
+  ! echo "run /mnt/e/Job/RET/Ericsson-RET/define_RET.mos --lookup 065R15M18JKD"
+  ! echo "run /mnt/e/Job/RET/Ericsson-RET/define_RET.mos --help"
   ! echo "======================================================================================="
   unset small
   l-
@@ -207,7 +208,7 @@ func dualSerial_FUNC
 endfunc
 
 ###
-func fixABB_FUNC
+func ABB4_1A_FUNC
   if $noOfTx = 4 || $noOfRf = 4
     cr Equipment=1,AntennaUnitGroup=$UNIT,AntennaUnit=1,AntennaSubunit=1,AuPort=1
     cr Equipment=1,AntennaUnitGroup=$UNIT,AntennaUnit=1,AntennaSubunit=1,AuPort=2
@@ -242,30 +243,32 @@ if $check != 1
   ! echo "UNKNOWN ConfigId !"
   ! echo ""
   ! echo "Valid Selections"
-  ! echo "    CONFIGID    ANTENNA-MODEL    VENDOR      xPOL"
-  ! echo "    1X          ARETU/ARETUV01   KATHREIN    1x"
-  ! echo "    2A          2LPX0412R        BROADRADIO  2x"
-  ! echo "    2A          ODDI-032R20J-G   Comba-ODI   2x"
-  ! echo "    2B          ADU4517R3        HUAWEI      2x"
-  ! echo "    2C          AMB4520R0        HUAWEI      2x"
-  ! echo "    2D          AMB4520R8v06     HUAWEI      2x"
-  ! echo "    3A          ATR4518R4        HUAWEI      3x"
-  ! echo "    3B          UL2PX506R-C      BROADRADIO  3x"
-  ! echo "    3B          ULLPX206R-C      BROADRADIO  3x"
-  ! echo "    3B          ULLPX506R-C      BROADRADIO  3x"
-  ! echo "    3C          80010727         KATHREIN    3x"
-  ! echo "    4A          ODI-15E18KJJ-G   Comba-ODI   4x"
-  ! echo "    4A          15E18K18J18J     Comba-ODI   4x"
-  ! echo "    4B          AE-7647-0001     ASELSAN     4x"
-  ! echo "    4B          ODI065R15M18JJJ  Comba-ODI   4x"
-  ! echo "    4C          UL2PX206.12R-E2  BROADRADIO  4x"
-  ! echo "    4D          TONGYU           TONGYU      4x"
-  ! echo "    4E          ODI-65R12M15JJJ  Comba-ODI   4x"
-  ! echo "    6A          65R15M18JKDKD2   Comba-ODI   6x"
-  ! echo "    6B          MS-12H180        MatSing     6x"
-  ! echo "    8B          AOC4518R13v06    HUAWEI      8x"
-  ! echo "    8C          AMB4519R18v06    HUAWEI      8x"
-  ! echo "    8D          065R15M18JKD     Comba-ODI   8x"
+  ! echo "  CONFIGID    ANTENNA-MODEL    VENDOR      xPOL"
+  ! echo "  1X          ARETU/ARETUV01   KATHREIN    1x"
+  ! echo "  2A          2LPX0412R        BROADRADIO  2x"
+  ! echo "  2A          ODDI-032R20J-G   Comba-ODI   2x"
+  ! echo "  2B          ADU4517R3        HUAWEI      2x"
+  ! echo "  2C          AMB4520R0        HUAWEI      2x"
+  ! echo "  2D          AMB4520R8v06     HUAWEI      2x"
+  ! echo "  3A          ATR4518R4        HUAWEI      3x"
+  ! echo "  3B          UL2PX506R-C      BROADRADIO  3x"
+  ! echo "  3B          ULLPX206R-C      BROADRADIO  3x"
+  ! echo "  3B          ULLPX506R-C      BROADRADIO  3x"
+  ! echo "  3C          80010727         KATHREIN    3x"
+  ! echo "  4A          ODI-15E18KJJ-G   Comba-ODI   4x"
+  ! echo "  4A          15E18K18J18J     Comba-ODI   4x"
+  ! echo "  4B          AE-7647-0001     ASELSAN     4x"
+  ! echo "  4B          ODI065R15M18JJJ  Comba-ODI   4x"
+  ! echo "  4C          UL2PX206.12R-E2  BROADRADIO  4x"
+  ! echo "  4D          TONGYU           TONGYU      4x"
+  ! echo "  4E          ODI-65R12M15JJJ  Comba-ODI   4x"
+  ! echo "  6A          65R15M18JKDKD2   Comba-ODI   6x"
+  ! echo "  6B          MS-12H180        MatSing     6x"
+  ! echo "  8B          AOC4518R13v06    HUAWEI      8x"
+  ! echo "  8C          AMB4519R18v06    HUAWEI      8x"
+  ! echo "  8D          065R15M18JKD     Comba-ODI   8x"
+  ! echo ""
+  ! echo "run /mnt/e/Job/RET/Ericsson-RET/define_RET.mos --lookup 065R15M18JKD"
   ! echo ""
   ! echo "======================================================================================="
   unset small
@@ -296,23 +299,23 @@ else if $input[4] ~ (2C)
   !sed -i 's/{SERIAL2}/$serial2/g' $scripts/$nodename_$SITESECTOR.xml
 fi
 
-### from ... to ABB4_1A
+### from ABB4_2A to ABB4_1A
 if $UNIT ~ [2|4]$
   get SectorCarrier=$UNIT noOfTxAntennas > $noOfTx
   prs $UNITRDN,RfPort=[^R]
   $noOfRf = $nr_of_mos
-  fixABB_FUNC
+  ABB4_1A_FUNC
 fi
 
 ### AntennaUnit [2,3,4] are the 2nd 3rd and 4th cascaded physical antennas
-del AntennaUnitGroup=$UNIT,AntennaUnit=1,AntennaSubunit=[^1]
-del AntennaUnitGroup=$UNIT,AntennaUnit=2,AntennaSubunit=[^1]
-del AntennaUnitGroup=$UNIT,AntennaUnit=3,AntennaSubunit=[^1]
-del AntennaUnitGroup=$UNIT,AntennaUnit=4,AntennaSubunit=[^1]
-
-### unload and reload Ret related MOs
-lu AuPort|RetSubUnit|AntennaNearUnit|AntennaSubunit|AntennaUnitGroup
-lt AuPort|RetSubUnit|AntennaNearUnit|AntennaSubunit|AntennaUnitGroup
+set AntennaUnitGroup=$UNIT,AntennaUnit=1,AntennaSubunit=[^1B] retSubunitRef
+set AntennaUnitGroup=$UNIT,AntennaUnit=2,AntennaSubunit=[^1B] retSubunitRef
+set AntennaUnitGroup=$UNIT,AntennaUnit=3,AntennaSubunit=[^1B] retSubunitRef
+set AntennaUnitGroup=$UNIT,AntennaUnit=4,AntennaSubunit=[^1B] retSubunitRef
+del AntennaUnitGroup=$UNIT,AntennaUnit=1,AntennaSubunit=[^1B]
+del AntennaUnitGroup=$UNIT,AntennaUnit=2,AntennaSubunit=[^1B]
+del AntennaUnitGroup=$UNIT,AntennaUnit=3,AntennaSubunit=[^1B]
+del AntennaUnitGroup=$UNIT,AntennaUnit=4,AntennaSubunit=[^1B]
 
 
 ####################################
