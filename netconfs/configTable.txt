@@ -1,25 +1,24 @@
-CONFIGID    ANTENNA         xPOL
-1X          ARETUV01        x1
-1X          ARETU           x1
-2A          2LPX0412R       x2
-2A          ODDI-032R20J-G  x2
-2B          ADU4517R3       x2
-2C          AMB4520R0       x2
-2D          AMB4520R8v06    x2
-3A          ATR4518R4       x3
-3B          UL2PX506R-C     x3
-3B          ULLPX206R-C     x3
-3B          ULLPX506R-C     x3
-3C          80010727        x3
-4A          ODI-15E18KJJ-G  x4
-4A          15E18K18J18J    x4
-4B          AE-7647-0001    x4
-4B          ODI065R15M18JJJ x4
-4C          UL2PX206.12R-E2 x4
-4D          TONGYU          x4
-4E          ODI-65R12M15JJJ x4
-6A          65R15M18JKDKD2  x6
-6B          MS-12H180       x6
-8B          AOC4518R13v06   x8
-8C          AMB4519R18v06   x8
-8D          065R15M18JKD    x8
+CONFIGID  ANTENNA-MODEL    VENDOR      xPOL
+1X        ARETU/ARETUV01   KATHREIN    x1
+2A        2LPX0412R        BROADRADIO  x2
+2A        ODDI-032R20J-G   Comba-ODI   x2
+2B        ADU4517R3        HUAWEI      x2
+2C        AMB4520R0        HUAWEI      x2
+2D        AMB4520R8v06     HUAWEI      x2
+3A        ATR4518R4        HUAWEI      x3
+3B        UL2PX506R-C      BROADRADIO  x3
+3B        ULLPX206R-C      BROADRADIO  x3
+3B        ULLPX506R-C      BROADRADIO  x3
+3C        80010727         KATHREIN    x3
+4A        ODI-15E18KJJ-G   Comba-ODI   x4
+4A        15E18K18J18J     Comba-ODI   x4
+4B        AE-7647-0001     ASELSAN     x4
+4B        ODI065R15M18JJJ  Comba-ODI   x4
+4C        UL2PX206.12R-E2  BROADRADIO  x4
+4D        TONGYU           TONGYU      x4
+4E        ODI-65R12M15JJJ  Comba-ODI   x4
+6A        65R15M18JKDKD2   Comba-ODI   x6
+6B        MS-12H180        MatSing     x6
+8B        AOC4518R13v06    HUAWEI      x8
+8C        AMB4519R18v06    HUAWEI      x8
+8D        065R15M18JKD     Comba-ODI   x8
