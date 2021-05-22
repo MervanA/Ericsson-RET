@@ -53,7 +53,7 @@
 //
 //
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-l+mmo /dev/null
+l+mmos /dev/null
 uv sort_proxy=1
 confbdl+
 $logpath := /mnt/e/Job/RET/Ericsson-RET/logs
@@ -106,216 +106,25 @@ fi
 
 
 ####################################
-## verify SITESECTOR
+## load FUNCTIONS
 ####################################
-$SITESECTOR = $input[1]
-$SITESECTORlen = `$gawk -v SS="$SITESECTOR" 'BEGIN{print length(SS)}'`
-if $SITESECTORlen != 6
-  ! echo ""
-  ! echo "======================================================================================="
-  ! echo ""
-  ! echo "Invalid SITE SECTOR ID, must be 6 characters!"
-  ! echo ""
-  ! echo "======================================================================================="
-  unset small
-  l-
-  return
-else
-  $SITESECTOR = $input[1]
-fi
+run $templates/functions_RET.mos
 
 
 ####################################
-## verify RADIO
+## Sequence FUNCTIONS
 ####################################
-mr sectorunit
-ma sectorunit FieldReplaceableUnit=[^1|SUP|BB].+$
-for $mo in sectorunit
-  $UNITRDN = rdn($mo)
-  $UNIT = `$gawk -v UN="$UNITRDN" 'BEGIN{print gensub(/.*-/,"",1,UN)}'`
-  if $UNIT = $input[2]
-    $check = 1
-    break
-  fi
-done
-if $check != 1
-  ! echo ""
-  ! echo "======================================================================================="
-  ! echo ""
-  ! echo "Radio Unit does not exist"
-  ! echo ""
-  ! echo "======================================================================================="
-  unset small
-  l-
-  return
-fi
-mr sectorunit
-unset $check
-
-
-####################################
-## verify DIR
-####################################
-$DIRlen = `$gawk -v DR="$input[3]" 'BEGIN{print length(DR)}'`
-if $DIRlen > 3 || $input[3] ~ ^$
-  ! echo ""
-  ! echo "======================================================================================="
-  ! echo ""
-  ! echo "Are you sure antenna is not looking at the moon ?"
-  ! echo "use d or D as input if value is unknown"
-  ! echo ""
-  ! echo "======================================================================================="
-  unset small
-  l-
-  return
-fi
-if $input[3] ~ [x|X|d|D]
-  $DIR = XXX
-else
-  $DIR = `$gawk -v DR="$input[3]" 'BEGIN{if (length(DR)==1) print "00"DR; else if (length(DR)==2) print "0"DR; else if (DR<0 || DR>360) print "XXX"; else print DR}'`
-fi
-
-
-####################################
-## SUPPORTING FUNCTIONS
-####################################
-func singelSerial_FUNC
-  for 10
-    ! echo "AERTUV01    example 123456-XX"
-    ! echo "ARETU       example 123456"
-    ! echo "RET Id      example RET6, RET7"
-    ! echo ""
-    $serialx = readinput(please provide ARETU Serial Number:  )
-    $retIdx = readinput(please provide the RET Id:  )
-    if $serialx !~ ^$ && $retIdx ~ ^RET[1-8][0-6]?$
-       break
-    fi
-  done
-endfunc
-
-###
-func dualSerial_FUNC
-  for 10
-    ! echo "RET1 serial example 123456y"
-    ! echo "RET4 serial example 12345yy"
-    ! echo ""
-    $serial1 = readinput(please provide RET1 Serial Number:  )
-    $serial2 = readinput(please provide RET4 Serial Number:  )
-    if $serial !~ ^$
-       break
-    fi
-  done
-endfunc
-
-###
-func ABB4_1A_FUNC
-  if $noOfTx = 4 || $noOfRf = 4
-    cr Equipment=1,AntennaUnitGroup=$UNIT,AntennaUnit=1,AntennaSubunit=1,AuPort=1
-    cr Equipment=1,AntennaUnitGroup=$UNIT,AntennaUnit=1,AntennaSubunit=1,AuPort=2
-    cr Equipment=1,AntennaUnitGroup=$UNIT,AntennaUnit=1,AntennaSubunit=1,AuPort=3
-    cr Equipment=1,AntennaUnitGroup=$UNIT,AntennaUnit=1,AntennaSubunit=1,AuPort=4
-    set Equipment=1,AntennaUnitGroup=$UNIT,RfBranch=1 auPortRef Equipment=1,AntennaUnitGroup=$UNIT,AntennaUnit=1,AntennaSubunit=1,AuPort=1
-    set Equipment=1,AntennaUnitGroup=$UNIT,RfBranch=2 auPortRef Equipment=1,AntennaUnitGroup=$UNIT,AntennaUnit=1,AntennaSubunit=1,AuPort=2
-    set Equipment=1,AntennaUnitGroup=$UNIT,RfBranch=3 auPortRef Equipment=1,AntennaUnitGroup=$UNIT,AntennaUnit=1,AntennaSubunit=1,AuPort=3
-    set Equipment=1,AntennaUnitGroup=$UNIT,RfBranch=4 auPortRef Equipment=1,AntennaUnitGroup=$UNIT,AntennaUnit=1,AntennaSubunit=1,AuPort=4
-  fi
-endfunc
-
-
-####################################
-## verify CONFIGID
-####################################
-if $input[4] ~ (2A|2A|2B|2D|3A|3B|3B|3B|3C|4A|4A|4B|4B|4C|4D|4E|6A|6B|8B|8C|8D)
-  $check = 1
-  $xmlFile = $input[4]_netconf.xml
-else if $input[4] ~ (1X)
-  $check = 1
-  $xmlFile = 1X_netconf.xml
-  singelSerial_FUNC
-else if $input[4] ~ (2C)
-  $check = 1
-  $xmlFile = 2C_netconf.xml
-  dualSerial_FUNC
-fi
-if $check != 1
-  ! echo ""
-  ! echo "======================================================================================="
-  ! echo "UNKNOWN ConfigId !"
-  ! echo ""
-  ! echo "Valid Selections"
-  ! echo "  CONFIGID    ANTENNA-MODEL    VENDOR      xPOL"
-  ! echo "  1X          ARETU/ARETUV01   KATHREIN    1x"
-  ! echo "  2A          2LPX0412R        BROADRADIO  2x"
-  ! echo "  2A          ODDI-032R20J-G   Comba-ODI   2x"
-  ! echo "  2B          ADU4517R3        HUAWEI      2x"
-  ! echo "  2C          AMB4520R0        HUAWEI      2x"
-  ! echo "  2D          AMB4520R8v06     HUAWEI      2x"
-  ! echo "  3A          ATR4518R4        HUAWEI      3x"
-  ! echo "  3B          UL2PX506R-C      BROADRADIO  3x"
-  ! echo "  3B          ULLPX206R-C      BROADRADIO  3x"
-  ! echo "  3B          ULLPX506R-C      BROADRADIO  3x"
-  ! echo "  3C          80010727         KATHREIN    3x"
-  ! echo "  4A          ODI-15E18KJJ-G   Comba-ODI   4x"
-  ! echo "  4A          15E18K18J18J     Comba-ODI   4x"
-  ! echo "  4B          AE-7647-0001     ASELSAN     4x"
-  ! echo "  4B          ODI065R15M18JJJ  Comba-ODI   4x"
-  ! echo "  4C          UL2PX206.12R-E2  BROADRADIO  4x"
-  ! echo "  4D          TONGYU           TONGYU      4x"
-  ! echo "  4E          ODI-65R12M15JJJ  Comba-ODI   4x"
-  ! echo "  6A          65R15M18JKDKD2   Comba-ODI   6x"
-  ! echo "  6B          MS-12H180        MatSing     6x"
-  ! echo "  8B          AOC4518R13v06    HUAWEI      8x"
-  ! echo "  8C          AMB4519R18v06    HUAWEI      8x"
-  ! echo "  8D          065R15M18JKD     Comba-ODI   8x"
-  ! echo ""
-  ! echo "run /mnt/e/Job/RET/Ericsson-RET/define_RET.mos --lookup 065R15M18JKD"
-  ! echo ""
-  ! echo "======================================================================================="
-  unset small
-  l-
-  return
-fi
-unset $check
+SITESECTOR_FUNC
+UNIT_FUNC
+DIR_FUNC
+CONFIGID_FUNC
+ANTENNA_FUNC
 
 
 ####################################
 ## PREP
 ####################################
-if $input[4] ~ (2A|2A|2B|2D|3A|3B|3B|3B|3C|4A|4A|4B|4B|4C|4D|4E|6A|6B|8B|8C|8D)
-  !sed 's/{SITESECTOR}/$SITESECTOR/g' $templates/$xmlFile > $netconfs/$nodename_$SITESECTOR.xml
-  !sed -i 's/{RADIO}/$UNIT/g' $netconfs/$nodename_$SITESECTOR.xml
-  !sed -i 's/{DIR}/$DIR/g' $netconfs/$nodename_$SITESECTOR.xml
-else if $input[4] ~ (1X)
-  !sed 's/{SITESECTOR}/$SITESECTOR/g' $templates/$xmlFile > $netconfs/$nodename_$SITESECTOR.xml
-  !sed -i 's/{RADIO}/$UNIT/g' $netconfs/$nodename_$SITESECTOR.xml
-  !sed -i 's/{DIR}/$DIR/g' $netconfs/$nodename_$SITESECTOR.xml
-  !sed -i 's/{SERIALX}/$serialx/g' $netconfs/$nodename_$SITESECTOR.xml
-  !sed -i 's/{RETID}/$retIdx/g' $netconfs/$nodename_$SITESECTOR.xml
-else if $input[4] ~ (2C)
-  !sed 's/{SITESECTOR}/$SITESECTOR/g' $templates/$xmlFile > $netconfs/$nodename_$SITESECTOR.xml
-  !sed -i 's/{RADIO}/$UNIT/g' $netconfs/$nodename_$SITESECTOR.xml
-  !sed -i 's/{DIR}/$DIR/g' $netconfs/$nodename_$SITESECTOR.xml
-  !sed -i 's/{SERIAL1}/$serial1/g' $netconfs/$nodename_$SITESECTOR.xml
-  !sed -i 's/{SERIAL2}/$serial2/g' $netconfs/$nodename_$SITESECTOR.xml
-fi
-
-### from ABB4_2A to ABB4_1A
-if $UNIT ~ [2|4]$
-  get SectorCarrier=$UNIT noOfTxAntennas > $noOfTx
-  prs $UNITRDN,RfPort=[^R]
-  $noOfRf = $nr_of_mos
-  ABB4_1A_FUNC
-fi
-
-### AntennaUnit [2,3,4] are the 2nd 3rd and 4th cascaded physical antennas
-set AntennaUnitGroup=$UNIT,AntennaUnit=1,AntennaSubunit=[^1B] retSubunitRef
-set AntennaUnitGroup=$UNIT,AntennaUnit=2,AntennaSubunit=[^1B] retSubunitRef
-set AntennaUnitGroup=$UNIT,AntennaUnit=3,AntennaSubunit=[^1B] retSubunitRef
-set AntennaUnitGroup=$UNIT,AntennaUnit=4,AntennaSubunit=[^1B] retSubunitRef
-del AntennaUnitGroup=$UNIT,AntennaUnit=1,AntennaSubunit=[^1B]
-del AntennaUnitGroup=$UNIT,AntennaUnit=2,AntennaSubunit=[^1B]
-del AntennaUnitGroup=$UNIT,AntennaUnit=3,AntennaSubunit=[^1B]
-del AntennaUnitGroup=$UNIT,AntennaUnit=4,AntennaSubunit=[^1B]
+TEMPLATE_FUNC
 
 
 ####################################
@@ -323,10 +132,11 @@ del AntennaUnitGroup=$UNIT,AntennaUnit=4,AntennaSubunit=[^1B]
 ####################################
 confbdl-
 l-
-//l+s $logpath/$nodename_RETinput.log
+##
+l+s $logpath/$nodename_RETinput.log
 netconf $netconfs/$nodename_$SITESECTOR.xml
-//###
-//lt AuPort|RetSubUnit|AntennaNearUnit|AntennaSubunit|AntennaUnitGroup
-//hgetm AntennaNearUnit|RetSubUnit iuantAntennaModelNumber|connectionState|operationalState|userLabel|uniqueId|Tilt
-//l-
+###
+lt AuPort|RetSubUnit|AntennaNearUnit|AntennaSubunit|AntennaUnitGroup
+hgetm AntennaNearUnit|RetSubUnit iuantAntennaModelNumber|connectionState|operationalState|userLabel|uniqueId|Tilt
+l-
 unset all
