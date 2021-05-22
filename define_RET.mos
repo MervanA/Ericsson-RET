@@ -57,8 +57,8 @@ l+mmo /dev/null
 uv sort_proxy=1
 confbdl+
 $logpath := /mnt/e/Job/RET/Ericsson-RET/logs
+$templates := /mnt/e/Job/RET/Ericsson-RET/templates
 $netconfs := /mnt/e/Job/RET/Ericsson-RET/netconfs
-$scripts := /mnt/e/Job/RET/Ericsson-RET/scripts
 ####################################
 ## value COMMAND INPUT
 ####################################
@@ -81,7 +81,7 @@ else if $all_input ~ --lookup
   $lookup = $2
   ! echo ""
   ! echo "======================================================================================="
-  ! $gawk 'NR==1; /$lookup/{print}' $netconfs/configTable.txt
+  ! $gawk 'NR==1; /$lookup/{print}' $templates/configTable.txt
   ! echo "======================================================================================="
   unset small
   l-
@@ -172,7 +172,7 @@ fi
 if $input[3] ~ [x|X|d|D]
   $DIR = XXX
 else
-  $DIR = `$gawk -v DR="$input[3]" 'BEGIN{if (length(DR)==1) print "00"DR; else if (length(DR)==2) print "0"DR; else if (DR>360) print "XXX"; else print DR}'`
+  $DIR = `$gawk -v DR="$input[3]" 'BEGIN{if (length(DR)==1) print "00"DR; else if (length(DR)==2) print "0"DR; else if (DR<0 || DR>360) print "XXX"; else print DR}'`
 fi
 
 
@@ -282,21 +282,21 @@ unset $check
 ## PREP
 ####################################
 if $input[4] ~ (2A|2A|2B|2D|3A|3B|3B|3B|3C|4A|4A|4B|4B|4C|4D|4E|6A|6B|8B|8C|8D)
-  !sed 's/{SITESECTOR}/$SITESECTOR/g' $netconfs/$xmlFile > $scripts/$nodename_$SITESECTOR.xml
-  !sed -i 's/{RADIO}/$UNIT/g' $scripts/$nodename_$SITESECTOR.xml
-  !sed -i 's/{DIR}/$DIR/g' $scripts/$nodename_$SITESECTOR.xml
+  !sed 's/{SITESECTOR}/$SITESECTOR/g' $templates/$xmlFile > $netconfs/$nodename_$SITESECTOR.xml
+  !sed -i 's/{RADIO}/$UNIT/g' $netconfs/$nodename_$SITESECTOR.xml
+  !sed -i 's/{DIR}/$DIR/g' $netconfs/$nodename_$SITESECTOR.xml
 else if $input[4] ~ (1X)
-  !sed 's/{SITESECTOR}/$SITESECTOR/g' $netconfs/$xmlFile > $scripts/$nodename_$SITESECTOR.xml
-  !sed -i 's/{RADIO}/$UNIT/g' $scripts/$nodename_$SITESECTOR.xml
-  !sed -i 's/{DIR}/$DIR/g' $scripts/$nodename_$SITESECTOR.xml
-  !sed -i 's/{SERIALX}/$serialx/g' $scripts/$nodename_$SITESECTOR.xml
-  !sed -i 's/{RETID}/$retIdx/g' $scripts/$nodename_$SITESECTOR.xml
+  !sed 's/{SITESECTOR}/$SITESECTOR/g' $templates/$xmlFile > $netconfs/$nodename_$SITESECTOR.xml
+  !sed -i 's/{RADIO}/$UNIT/g' $netconfs/$nodename_$SITESECTOR.xml
+  !sed -i 's/{DIR}/$DIR/g' $netconfs/$nodename_$SITESECTOR.xml
+  !sed -i 's/{SERIALX}/$serialx/g' $netconfs/$nodename_$SITESECTOR.xml
+  !sed -i 's/{RETID}/$retIdx/g' $netconfs/$nodename_$SITESECTOR.xml
 else if $input[4] ~ (2C)
-  !sed 's/{SITESECTOR}/$SITESECTOR/g' $netconfs/$xmlFile > $scripts/$nodename_$SITESECTOR.xml
-  !sed -i 's/{RADIO}/$UNIT/g' $scripts/$nodename_$SITESECTOR.xml
-  !sed -i 's/{DIR}/$DIR/g' $scripts/$nodename_$SITESECTOR.xml
-  !sed -i 's/{SERIAL1}/$serial1/g' $scripts/$nodename_$SITESECTOR.xml
-  !sed -i 's/{SERIAL2}/$serial2/g' $scripts/$nodename_$SITESECTOR.xml
+  !sed 's/{SITESECTOR}/$SITESECTOR/g' $templates/$xmlFile > $netconfs/$nodename_$SITESECTOR.xml
+  !sed -i 's/{RADIO}/$UNIT/g' $netconfs/$nodename_$SITESECTOR.xml
+  !sed -i 's/{DIR}/$DIR/g' $netconfs/$nodename_$SITESECTOR.xml
+  !sed -i 's/{SERIAL1}/$serial1/g' $netconfs/$nodename_$SITESECTOR.xml
+  !sed -i 's/{SERIAL2}/$serial2/g' $netconfs/$nodename_$SITESECTOR.xml
 fi
 
 ### from ABB4_2A to ABB4_1A
@@ -323,10 +323,10 @@ del AntennaUnitGroup=$UNIT,AntennaUnit=4,AntennaSubunit=[^1B]
 ####################################
 confbdl-
 l-
-l+s $logpath/$nodename_RETinput.log
-netconf $scripts/$nodename_$SITESECTOR.xml
-###
-lt AuPort|RetSubUnit|AntennaNearUnit|AntennaSubunit|AntennaUnitGroup
-hgetm AntennaNearUnit|RetSubUnit iuantAntennaModelNumber|connectionState|operationalState|userLabel|uniqueId|Tilt
-l-
+//l+s $logpath/$nodename_RETinput.log
+netconf $netconfs/$nodename_$SITESECTOR.xml
+//###
+//lt AuPort|RetSubUnit|AntennaNearUnit|AntennaSubunit|AntennaUnitGroup
+//hgetm AntennaNearUnit|RetSubUnit iuantAntennaModelNumber|connectionState|operationalState|userLabel|uniqueId|Tilt
+//l-
 unset all

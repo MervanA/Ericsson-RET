@@ -1,0 +1,400 @@
+
+OFFLINE_KGET_OFFLINE_YAKYUL_DCG_K> netconf /mnt/e/Job/RET/Ericsson-RET/scripts/OFFLINE_KGET_OFFLINE_YAKYUL_dcg_k_TEST11.xml
+
+Command unavailable in offline mode.
+
+OFFLINE_KGET_OFFLINE_YAKYUL_DCG_K> ###
+
+OFFLINE_KGET_OFFLINE_YAKYUL_DCG_K> lt AuPort|RetSubUnit|AntennaNearUnit|AntennaSubunit|AntennaUnitGroup
+
+210522-11:22:10 OFFLINE_KGET_OFFLINE_YAKYUL_dcg_k 21.0f MSRBS_NODE_MODEL_20.Q2_453.28212.68_577c stopfile=/tmp/7084
+
+In offline mode, the syntax is: "lt all" or "lt /path/to/modump"
+
+OFFLINE_KGET_OFFLINE_YAKYUL_DCG_K> hgetm AntennaNearUnit|RetSubUnit iuantAntennaModelNumber|connectionState|operationalState|userLabel|uniqueId|Tilt
+
+210522-11:22:10 OFFLINE_KGET_OFFLINE_YAKYUL_dcg_k 21.0f MSRBS_NODE_MODEL_20.Q2_453.28212.68_577c stopfile=/tmp/7084
+
+=================================================================================================================
+MO                                                        electricalAntennaTilt iuantAntennaModelNumber maxTilt minTilt onUnitUniqueId      operationalState tiltChangeStatus uniqueId userLabel                                 
+=================================================================================================================
+AntennaUnitGroup=S1C2C7,AntennaNearUnit=RET1                                                                            CB00CB1540070921-Y1 1 (ENABLED)                       Y1                                                 
+AntennaUnitGroup=S1C2C7,AntennaNearUnit=RET1,RetSubUnit=1 30                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU1-000-ANT2-Y1-L1800+L2600+L2100+U2100
+AntennaUnitGroup=S1C2C7,AntennaNearUnit=RET2                                                                            CB00CB1540070921-R1 1 (ENABLED)                       R1                                                 
+AntennaUnitGroup=S1C2C7,AntennaNearUnit=RET2,RetSubUnit=1 74                    ODI-15E18KJJ-G          140     0                           1 (ENABLED)      3 (IDLE)                  YAKYU1-000-ANT1-R1-L0800+G0900            
+AntennaUnitGroup=S1C2C7,AntennaNearUnit=RET4                                                                            CB00CB1540070921-Y2 1 (ENABLED)                       Y2                                                 
+AntennaUnitGroup=S1C2C7,AntennaNearUnit=RET4,RetSubUnit=1 30                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU1-000-ANT2-Y2-L1800+L2600+L2100+U2100
+AntennaUnitGroup=S2C2C7,AntennaNearUnit=RET1                                                                            CB00CB1540081803-Y1 1 (ENABLED)                       Y1                                                 
+AntennaUnitGroup=S2C2C7,AntennaNearUnit=RET1,RetSubUnit=1 30                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU2-090-ANT2-Y1-L1800+L2100+U2100      
+AntennaUnitGroup=S2C2C7,AntennaNearUnit=RET2                                                                            CB00CB1540081803-R1 1 (ENABLED)                       R1                                                 
+AntennaUnitGroup=S2C2C7,AntennaNearUnit=RET2,RetSubUnit=1 0                     ODI-15E18KJJ-G          140     0                           1 (ENABLED)      3 (IDLE)                  YAKYU2-090-ANT1-R1-L0800+G0900            
+AntennaUnitGroup=S2C2C7,AntennaNearUnit=RET4                                                                            CB00CB1540081803-Y2 1 (ENABLED)                       Y2                                                 
+AntennaUnitGroup=S2C2C7,AntennaNearUnit=RET4,RetSubUnit=1 30                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU2-090-ANT2-Y2-L1800+L2100+U2100      
+AntennaUnitGroup=S3C2C7,AntennaNearUnit=RET1                                                                            CB00CB1540086463-Y1 1 (ENABLED)                       Y1                                                 
+AntennaUnitGroup=S3C2C7,AntennaNearUnit=RET1,RetSubUnit=1 60                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU3-180-ANT2-Y1-L1800+L2100+U2100      
+AntennaUnitGroup=S3C2C7,AntennaNearUnit=RET2                                                                            CB00CB1540086463-R1 1 (ENABLED)                       R1                                                 
+AntennaUnitGroup=S3C2C7,AntennaNearUnit=RET2,RetSubUnit=1 74                    ODI-15E18KJJ-G          140     0                           1 (ENABLED)      3 (IDLE)                  YAKYU3-180-ANT1-R1-L0800+G0900            
+AntennaUnitGroup=S3C2C7,AntennaNearUnit=RET4                                                                            CB00CB1540086463-Y2 1 (ENABLED)                       Y2                                                 
+AntennaUnitGroup=S3C2C7,AntennaNearUnit=RET4,RetSubUnit=1 60                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU3-180-ANT2-Y2-L1800+L2100+U2100      
+AntennaUnitGroup=S4C2C7,AntennaNearUnit=RET1                                                                            CB00CB1540051507-Y1 1 (ENABLED)                       Y1                                                 
+AntennaUnitGroup=S4C2C7,AntennaNearUnit=RET1,RetSubUnit=1 30                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU4-270-ANT2-Y1-L1800+L2100+U2100      
+AntennaUnitGroup=S4C2C7,AntennaNearUnit=RET2                                                                            CB00CB1540051507-R1 1 (ENABLED)                       R1                                                 
+AntennaUnitGroup=S4C2C7,AntennaNearUnit=RET2,RetSubUnit=1 74                    ODI-15E18KJJ-G          140     0                           1 (ENABLED)      3 (IDLE)                  YAKYU4-270-ANT1-R1-L0800+G0900            
+AntennaUnitGroup=S4C2C7,AntennaNearUnit=RET4                                                                            CB00CB1540051507-Y2 1 (ENABLED)                       Y2                                                 
+AntennaUnitGroup=S4C2C7,AntennaNearUnit=RET4,RetSubUnit=1 30                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU4-270-ANT2-Y2-L1800+L2100+U2100      
+=================================================================================================================
+Total: 24 MOs
+
+Added 24 MOs to group: hget_group
+
+Log close: 210522-112210 - /mnt/e/Job/RET/Ericsson-RET/logs/OFFLINE_KGET_OFFLINE_YAKYUL_dcg_k_RETinput.log
+
+OFFLINE_KGET_OFFLINE_YAKYUL_DCG_K> netconf /mnt/e/Job/RET/Ericsson-RET/scripts/OFFLINE_KGET_OFFLINE_YAKYUL_dcg_k_TEST11.xml
+
+Command unavailable in offline mode.
+
+OFFLINE_KGET_OFFLINE_YAKYUL_DCG_K> ###
+
+OFFLINE_KGET_OFFLINE_YAKYUL_DCG_K> lt AuPort|RetSubUnit|AntennaNearUnit|AntennaSubunit|AntennaUnitGroup
+
+210522-11:22:24 OFFLINE_KGET_OFFLINE_YAKYUL_dcg_k 21.0f MSRBS_NODE_MODEL_20.Q2_453.28212.68_577c stopfile=/tmp/7084
+
+In offline mode, the syntax is: "lt all" or "lt /path/to/modump"
+
+OFFLINE_KGET_OFFLINE_YAKYUL_DCG_K> hgetm AntennaNearUnit|RetSubUnit iuantAntennaModelNumber|connectionState|operationalState|userLabel|uniqueId|Tilt
+
+210522-11:22:24 OFFLINE_KGET_OFFLINE_YAKYUL_dcg_k 21.0f MSRBS_NODE_MODEL_20.Q2_453.28212.68_577c stopfile=/tmp/7084
+
+=================================================================================================================
+MO                                                        electricalAntennaTilt iuantAntennaModelNumber maxTilt minTilt onUnitUniqueId      operationalState tiltChangeStatus uniqueId userLabel                                 
+=================================================================================================================
+AntennaUnitGroup=S1C2C7,AntennaNearUnit=RET1                                                                            CB00CB1540070921-Y1 1 (ENABLED)                       Y1                                                 
+AntennaUnitGroup=S1C2C7,AntennaNearUnit=RET1,RetSubUnit=1 30                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU1-000-ANT2-Y1-L1800+L2600+L2100+U2100
+AntennaUnitGroup=S1C2C7,AntennaNearUnit=RET2                                                                            CB00CB1540070921-R1 1 (ENABLED)                       R1                                                 
+AntennaUnitGroup=S1C2C7,AntennaNearUnit=RET2,RetSubUnit=1 74                    ODI-15E18KJJ-G          140     0                           1 (ENABLED)      3 (IDLE)                  YAKYU1-000-ANT1-R1-L0800+G0900            
+AntennaUnitGroup=S1C2C7,AntennaNearUnit=RET4                                                                            CB00CB1540070921-Y2 1 (ENABLED)                       Y2                                                 
+AntennaUnitGroup=S1C2C7,AntennaNearUnit=RET4,RetSubUnit=1 30                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU1-000-ANT2-Y2-L1800+L2600+L2100+U2100
+AntennaUnitGroup=S2C2C7,AntennaNearUnit=RET1                                                                            CB00CB1540081803-Y1 1 (ENABLED)                       Y1                                                 
+AntennaUnitGroup=S2C2C7,AntennaNearUnit=RET1,RetSubUnit=1 30                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU2-090-ANT2-Y1-L1800+L2100+U2100      
+AntennaUnitGroup=S2C2C7,AntennaNearUnit=RET2                                                                            CB00CB1540081803-R1 1 (ENABLED)                       R1                                                 
+AntennaUnitGroup=S2C2C7,AntennaNearUnit=RET2,RetSubUnit=1 0                     ODI-15E18KJJ-G          140     0                           1 (ENABLED)      3 (IDLE)                  YAKYU2-090-ANT1-R1-L0800+G0900            
+AntennaUnitGroup=S2C2C7,AntennaNearUnit=RET4                                                                            CB00CB1540081803-Y2 1 (ENABLED)                       Y2                                                 
+AntennaUnitGroup=S2C2C7,AntennaNearUnit=RET4,RetSubUnit=1 30                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU2-090-ANT2-Y2-L1800+L2100+U2100      
+AntennaUnitGroup=S3C2C7,AntennaNearUnit=RET1                                                                            CB00CB1540086463-Y1 1 (ENABLED)                       Y1                                                 
+AntennaUnitGroup=S3C2C7,AntennaNearUnit=RET1,RetSubUnit=1 60                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU3-180-ANT2-Y1-L1800+L2100+U2100      
+AntennaUnitGroup=S3C2C7,AntennaNearUnit=RET2                                                                            CB00CB1540086463-R1 1 (ENABLED)                       R1                                                 
+AntennaUnitGroup=S3C2C7,AntennaNearUnit=RET2,RetSubUnit=1 74                    ODI-15E18KJJ-G          140     0                           1 (ENABLED)      3 (IDLE)                  YAKYU3-180-ANT1-R1-L0800+G0900            
+AntennaUnitGroup=S3C2C7,AntennaNearUnit=RET4                                                                            CB00CB1540086463-Y2 1 (ENABLED)                       Y2                                                 
+AntennaUnitGroup=S3C2C7,AntennaNearUnit=RET4,RetSubUnit=1 60                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU3-180-ANT2-Y2-L1800+L2100+U2100      
+AntennaUnitGroup=S4C2C7,AntennaNearUnit=RET1                                                                            CB00CB1540051507-Y1 1 (ENABLED)                       Y1                                                 
+AntennaUnitGroup=S4C2C7,AntennaNearUnit=RET1,RetSubUnit=1 30                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU4-270-ANT2-Y1-L1800+L2100+U2100      
+AntennaUnitGroup=S4C2C7,AntennaNearUnit=RET2                                                                            CB00CB1540051507-R1 1 (ENABLED)                       R1                                                 
+AntennaUnitGroup=S4C2C7,AntennaNearUnit=RET2,RetSubUnit=1 74                    ODI-15E18KJJ-G          140     0                           1 (ENABLED)      3 (IDLE)                  YAKYU4-270-ANT1-R1-L0800+G0900            
+AntennaUnitGroup=S4C2C7,AntennaNearUnit=RET4                                                                            CB00CB1540051507-Y2 1 (ENABLED)                       Y2                                                 
+AntennaUnitGroup=S4C2C7,AntennaNearUnit=RET4,RetSubUnit=1 30                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU4-270-ANT2-Y2-L1800+L2100+U2100      
+=================================================================================================================
+Total: 24 MOs
+
+Added 24 MOs to group: hget_group
+
+Log close: 210522-112224 - /mnt/e/Job/RET/Ericsson-RET/logs/OFFLINE_KGET_OFFLINE_YAKYUL_dcg_k_RETinput.log
+
+OFFLINE_KGET_OFFLINE_YAKYUL_DCG_K> netconf /mnt/e/Job/RET/Ericsson-RET/scripts/OFFLINE_KGET_OFFLINE_YAKYUL_dcg_k_TEST11.xml
+
+Command unavailable in offline mode.
+
+OFFLINE_KGET_OFFLINE_YAKYUL_DCG_K> ###
+
+OFFLINE_KGET_OFFLINE_YAKYUL_DCG_K> lt AuPort|RetSubUnit|AntennaNearUnit|AntennaSubunit|AntennaUnitGroup
+
+210522-11:22:38 OFFLINE_KGET_OFFLINE_YAKYUL_dcg_k 21.0f MSRBS_NODE_MODEL_20.Q2_453.28212.68_577c stopfile=/tmp/7084
+
+In offline mode, the syntax is: "lt all" or "lt /path/to/modump"
+
+OFFLINE_KGET_OFFLINE_YAKYUL_DCG_K> hgetm AntennaNearUnit|RetSubUnit iuantAntennaModelNumber|connectionState|operationalState|userLabel|uniqueId|Tilt
+
+210522-11:22:38 OFFLINE_KGET_OFFLINE_YAKYUL_dcg_k 21.0f MSRBS_NODE_MODEL_20.Q2_453.28212.68_577c stopfile=/tmp/7084
+
+=================================================================================================================
+MO                                                        electricalAntennaTilt iuantAntennaModelNumber maxTilt minTilt onUnitUniqueId      operationalState tiltChangeStatus uniqueId userLabel                                 
+=================================================================================================================
+AntennaUnitGroup=S1C2C7,AntennaNearUnit=RET1                                                                            CB00CB1540070921-Y1 1 (ENABLED)                       Y1                                                 
+AntennaUnitGroup=S1C2C7,AntennaNearUnit=RET1,RetSubUnit=1 30                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU1-000-ANT2-Y1-L1800+L2600+L2100+U2100
+AntennaUnitGroup=S1C2C7,AntennaNearUnit=RET2                                                                            CB00CB1540070921-R1 1 (ENABLED)                       R1                                                 
+AntennaUnitGroup=S1C2C7,AntennaNearUnit=RET2,RetSubUnit=1 74                    ODI-15E18KJJ-G          140     0                           1 (ENABLED)      3 (IDLE)                  YAKYU1-000-ANT1-R1-L0800+G0900            
+AntennaUnitGroup=S1C2C7,AntennaNearUnit=RET4                                                                            CB00CB1540070921-Y2 1 (ENABLED)                       Y2                                                 
+AntennaUnitGroup=S1C2C7,AntennaNearUnit=RET4,RetSubUnit=1 30                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU1-000-ANT2-Y2-L1800+L2600+L2100+U2100
+AntennaUnitGroup=S2C2C7,AntennaNearUnit=RET1                                                                            CB00CB1540081803-Y1 1 (ENABLED)                       Y1                                                 
+AntennaUnitGroup=S2C2C7,AntennaNearUnit=RET1,RetSubUnit=1 30                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU2-090-ANT2-Y1-L1800+L2100+U2100      
+AntennaUnitGroup=S2C2C7,AntennaNearUnit=RET2                                                                            CB00CB1540081803-R1 1 (ENABLED)                       R1                                                 
+AntennaUnitGroup=S2C2C7,AntennaNearUnit=RET2,RetSubUnit=1 0                     ODI-15E18KJJ-G          140     0                           1 (ENABLED)      3 (IDLE)                  YAKYU2-090-ANT1-R1-L0800+G0900            
+AntennaUnitGroup=S2C2C7,AntennaNearUnit=RET4                                                                            CB00CB1540081803-Y2 1 (ENABLED)                       Y2                                                 
+AntennaUnitGroup=S2C2C7,AntennaNearUnit=RET4,RetSubUnit=1 30                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU2-090-ANT2-Y2-L1800+L2100+U2100      
+AntennaUnitGroup=S3C2C7,AntennaNearUnit=RET1                                                                            CB00CB1540086463-Y1 1 (ENABLED)                       Y1                                                 
+AntennaUnitGroup=S3C2C7,AntennaNearUnit=RET1,RetSubUnit=1 60                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU3-180-ANT2-Y1-L1800+L2100+U2100      
+AntennaUnitGroup=S3C2C7,AntennaNearUnit=RET2                                                                            CB00CB1540086463-R1 1 (ENABLED)                       R1                                                 
+AntennaUnitGroup=S3C2C7,AntennaNearUnit=RET2,RetSubUnit=1 74                    ODI-15E18KJJ-G          140     0                           1 (ENABLED)      3 (IDLE)                  YAKYU3-180-ANT1-R1-L0800+G0900            
+AntennaUnitGroup=S3C2C7,AntennaNearUnit=RET4                                                                            CB00CB1540086463-Y2 1 (ENABLED)                       Y2                                                 
+AntennaUnitGroup=S3C2C7,AntennaNearUnit=RET4,RetSubUnit=1 60                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU3-180-ANT2-Y2-L1800+L2100+U2100      
+AntennaUnitGroup=S4C2C7,AntennaNearUnit=RET1                                                                            CB00CB1540051507-Y1 1 (ENABLED)                       Y1                                                 
+AntennaUnitGroup=S4C2C7,AntennaNearUnit=RET1,RetSubUnit=1 30                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU4-270-ANT2-Y1-L1800+L2100+U2100      
+AntennaUnitGroup=S4C2C7,AntennaNearUnit=RET2                                                                            CB00CB1540051507-R1 1 (ENABLED)                       R1                                                 
+AntennaUnitGroup=S4C2C7,AntennaNearUnit=RET2,RetSubUnit=1 74                    ODI-15E18KJJ-G          140     0                           1 (ENABLED)      3 (IDLE)                  YAKYU4-270-ANT1-R1-L0800+G0900            
+AntennaUnitGroup=S4C2C7,AntennaNearUnit=RET4                                                                            CB00CB1540051507-Y2 1 (ENABLED)                       Y2                                                 
+AntennaUnitGroup=S4C2C7,AntennaNearUnit=RET4,RetSubUnit=1 30                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU4-270-ANT2-Y2-L1800+L2100+U2100      
+=================================================================================================================
+Total: 24 MOs
+
+Added 24 MOs to group: hget_group
+
+Log close: 210522-112238 - /mnt/e/Job/RET/Ericsson-RET/logs/OFFLINE_KGET_OFFLINE_YAKYUL_dcg_k_RETinput.log
+
+OFFLINE_KGET_OFFLINE_YAKYUL_DCG_K> netconf /mnt/e/Job/RET/Ericsson-RET/scripts/OFFLINE_KGET_OFFLINE_YAKYUL_dcg_k_TEST11.xml
+
+Command unavailable in offline mode.
+
+OFFLINE_KGET_OFFLINE_YAKYUL_DCG_K> ###
+
+OFFLINE_KGET_OFFLINE_YAKYUL_DCG_K> lt AuPort|RetSubUnit|AntennaNearUnit|AntennaSubunit|AntennaUnitGroup
+
+210522-11:23:03 OFFLINE_KGET_OFFLINE_YAKYUL_dcg_k 21.0f MSRBS_NODE_MODEL_20.Q2_453.28212.68_577c stopfile=/tmp/7084
+
+In offline mode, the syntax is: "lt all" or "lt /path/to/modump"
+
+OFFLINE_KGET_OFFLINE_YAKYUL_DCG_K> hgetm AntennaNearUnit|RetSubUnit iuantAntennaModelNumber|connectionState|operationalState|userLabel|uniqueId|Tilt
+
+210522-11:23:03 OFFLINE_KGET_OFFLINE_YAKYUL_dcg_k 21.0f MSRBS_NODE_MODEL_20.Q2_453.28212.68_577c stopfile=/tmp/7084
+
+=================================================================================================================
+MO                                                        electricalAntennaTilt iuantAntennaModelNumber maxTilt minTilt onUnitUniqueId      operationalState tiltChangeStatus uniqueId userLabel                                 
+=================================================================================================================
+AntennaUnitGroup=S1C2C7,AntennaNearUnit=RET1                                                                            CB00CB1540070921-Y1 1 (ENABLED)                       Y1                                                 
+AntennaUnitGroup=S1C2C7,AntennaNearUnit=RET1,RetSubUnit=1 30                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU1-000-ANT2-Y1-L1800+L2600+L2100+U2100
+AntennaUnitGroup=S1C2C7,AntennaNearUnit=RET2                                                                            CB00CB1540070921-R1 1 (ENABLED)                       R1                                                 
+AntennaUnitGroup=S1C2C7,AntennaNearUnit=RET2,RetSubUnit=1 74                    ODI-15E18KJJ-G          140     0                           1 (ENABLED)      3 (IDLE)                  YAKYU1-000-ANT1-R1-L0800+G0900            
+AntennaUnitGroup=S1C2C7,AntennaNearUnit=RET4                                                                            CB00CB1540070921-Y2 1 (ENABLED)                       Y2                                                 
+AntennaUnitGroup=S1C2C7,AntennaNearUnit=RET4,RetSubUnit=1 30                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU1-000-ANT2-Y2-L1800+L2600+L2100+U2100
+AntennaUnitGroup=S2C2C7,AntennaNearUnit=RET1                                                                            CB00CB1540081803-Y1 1 (ENABLED)                       Y1                                                 
+AntennaUnitGroup=S2C2C7,AntennaNearUnit=RET1,RetSubUnit=1 30                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU2-090-ANT2-Y1-L1800+L2100+U2100      
+AntennaUnitGroup=S2C2C7,AntennaNearUnit=RET2                                                                            CB00CB1540081803-R1 1 (ENABLED)                       R1                                                 
+AntennaUnitGroup=S2C2C7,AntennaNearUnit=RET2,RetSubUnit=1 0                     ODI-15E18KJJ-G          140     0                           1 (ENABLED)      3 (IDLE)                  YAKYU2-090-ANT1-R1-L0800+G0900            
+AntennaUnitGroup=S2C2C7,AntennaNearUnit=RET4                                                                            CB00CB1540081803-Y2 1 (ENABLED)                       Y2                                                 
+AntennaUnitGroup=S2C2C7,AntennaNearUnit=RET4,RetSubUnit=1 30                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU2-090-ANT2-Y2-L1800+L2100+U2100      
+AntennaUnitGroup=S3C2C7,AntennaNearUnit=RET1                                                                            CB00CB1540086463-Y1 1 (ENABLED)                       Y1                                                 
+AntennaUnitGroup=S3C2C7,AntennaNearUnit=RET1,RetSubUnit=1 60                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU3-180-ANT2-Y1-L1800+L2100+U2100      
+AntennaUnitGroup=S3C2C7,AntennaNearUnit=RET2                                                                            CB00CB1540086463-R1 1 (ENABLED)                       R1                                                 
+AntennaUnitGroup=S3C2C7,AntennaNearUnit=RET2,RetSubUnit=1 74                    ODI-15E18KJJ-G          140     0                           1 (ENABLED)      3 (IDLE)                  YAKYU3-180-ANT1-R1-L0800+G0900            
+AntennaUnitGroup=S3C2C7,AntennaNearUnit=RET4                                                                            CB00CB1540086463-Y2 1 (ENABLED)                       Y2                                                 
+AntennaUnitGroup=S3C2C7,AntennaNearUnit=RET4,RetSubUnit=1 60                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU3-180-ANT2-Y2-L1800+L2100+U2100      
+AntennaUnitGroup=S4C2C7,AntennaNearUnit=RET1                                                                            CB00CB1540051507-Y1 1 (ENABLED)                       Y1                                                 
+AntennaUnitGroup=S4C2C7,AntennaNearUnit=RET1,RetSubUnit=1 30                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU4-270-ANT2-Y1-L1800+L2100+U2100      
+AntennaUnitGroup=S4C2C7,AntennaNearUnit=RET2                                                                            CB00CB1540051507-R1 1 (ENABLED)                       R1                                                 
+AntennaUnitGroup=S4C2C7,AntennaNearUnit=RET2,RetSubUnit=1 74                    ODI-15E18KJJ-G          140     0                           1 (ENABLED)      3 (IDLE)                  YAKYU4-270-ANT1-R1-L0800+G0900            
+AntennaUnitGroup=S4C2C7,AntennaNearUnit=RET4                                                                            CB00CB1540051507-Y2 1 (ENABLED)                       Y2                                                 
+AntennaUnitGroup=S4C2C7,AntennaNearUnit=RET4,RetSubUnit=1 30                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU4-270-ANT2-Y2-L1800+L2100+U2100      
+=================================================================================================================
+Total: 24 MOs
+
+Added 24 MOs to group: hget_group
+
+Log close: 210522-112304 - /mnt/e/Job/RET/Ericsson-RET/logs/OFFLINE_KGET_OFFLINE_YAKYUL_dcg_k_RETinput.log
+
+OFFLINE_KGET_OFFLINE_YAKYUL_DCG_K> netconf /mnt/e/Job/RET/Ericsson-RET/scripts/OFFLINE_KGET_OFFLINE_YAKYUL_dcg_k_TEST11.xml
+
+Command unavailable in offline mode.
+
+OFFLINE_KGET_OFFLINE_YAKYUL_DCG_K> ###
+
+OFFLINE_KGET_OFFLINE_YAKYUL_DCG_K> lt AuPort|RetSubUnit|AntennaNearUnit|AntennaSubunit|AntennaUnitGroup
+
+210522-11:23:13 OFFLINE_KGET_OFFLINE_YAKYUL_dcg_k 21.0f MSRBS_NODE_MODEL_20.Q2_453.28212.68_577c stopfile=/tmp/7084
+
+In offline mode, the syntax is: "lt all" or "lt /path/to/modump"
+
+OFFLINE_KGET_OFFLINE_YAKYUL_DCG_K> hgetm AntennaNearUnit|RetSubUnit iuantAntennaModelNumber|connectionState|operationalState|userLabel|uniqueId|Tilt
+
+210522-11:23:13 OFFLINE_KGET_OFFLINE_YAKYUL_dcg_k 21.0f MSRBS_NODE_MODEL_20.Q2_453.28212.68_577c stopfile=/tmp/7084
+
+=================================================================================================================
+MO                                                        electricalAntennaTilt iuantAntennaModelNumber maxTilt minTilt onUnitUniqueId      operationalState tiltChangeStatus uniqueId userLabel                                 
+=================================================================================================================
+AntennaUnitGroup=S1C2C7,AntennaNearUnit=RET1                                                                            CB00CB1540070921-Y1 1 (ENABLED)                       Y1                                                 
+AntennaUnitGroup=S1C2C7,AntennaNearUnit=RET1,RetSubUnit=1 30                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU1-000-ANT2-Y1-L1800+L2600+L2100+U2100
+AntennaUnitGroup=S1C2C7,AntennaNearUnit=RET2                                                                            CB00CB1540070921-R1 1 (ENABLED)                       R1                                                 
+AntennaUnitGroup=S1C2C7,AntennaNearUnit=RET2,RetSubUnit=1 74                    ODI-15E18KJJ-G          140     0                           1 (ENABLED)      3 (IDLE)                  YAKYU1-000-ANT1-R1-L0800+G0900            
+AntennaUnitGroup=S1C2C7,AntennaNearUnit=RET4                                                                            CB00CB1540070921-Y2 1 (ENABLED)                       Y2                                                 
+AntennaUnitGroup=S1C2C7,AntennaNearUnit=RET4,RetSubUnit=1 30                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU1-000-ANT2-Y2-L1800+L2600+L2100+U2100
+AntennaUnitGroup=S2C2C7,AntennaNearUnit=RET1                                                                            CB00CB1540081803-Y1 1 (ENABLED)                       Y1                                                 
+AntennaUnitGroup=S2C2C7,AntennaNearUnit=RET1,RetSubUnit=1 30                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU2-090-ANT2-Y1-L1800+L2100+U2100      
+AntennaUnitGroup=S2C2C7,AntennaNearUnit=RET2                                                                            CB00CB1540081803-R1 1 (ENABLED)                       R1                                                 
+AntennaUnitGroup=S2C2C7,AntennaNearUnit=RET2,RetSubUnit=1 0                     ODI-15E18KJJ-G          140     0                           1 (ENABLED)      3 (IDLE)                  YAKYU2-090-ANT1-R1-L0800+G0900            
+AntennaUnitGroup=S2C2C7,AntennaNearUnit=RET4                                                                            CB00CB1540081803-Y2 1 (ENABLED)                       Y2                                                 
+AntennaUnitGroup=S2C2C7,AntennaNearUnit=RET4,RetSubUnit=1 30                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU2-090-ANT2-Y2-L1800+L2100+U2100      
+AntennaUnitGroup=S3C2C7,AntennaNearUnit=RET1                                                                            CB00CB1540086463-Y1 1 (ENABLED)                       Y1                                                 
+AntennaUnitGroup=S3C2C7,AntennaNearUnit=RET1,RetSubUnit=1 60                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU3-180-ANT2-Y1-L1800+L2100+U2100      
+AntennaUnitGroup=S3C2C7,AntennaNearUnit=RET2                                                                            CB00CB1540086463-R1 1 (ENABLED)                       R1                                                 
+AntennaUnitGroup=S3C2C7,AntennaNearUnit=RET2,RetSubUnit=1 74                    ODI-15E18KJJ-G          140     0                           1 (ENABLED)      3 (IDLE)                  YAKYU3-180-ANT1-R1-L0800+G0900            
+AntennaUnitGroup=S3C2C7,AntennaNearUnit=RET4                                                                            CB00CB1540086463-Y2 1 (ENABLED)                       Y2                                                 
+AntennaUnitGroup=S3C2C7,AntennaNearUnit=RET4,RetSubUnit=1 60                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU3-180-ANT2-Y2-L1800+L2100+U2100      
+AntennaUnitGroup=S4C2C7,AntennaNearUnit=RET1                                                                            CB00CB1540051507-Y1 1 (ENABLED)                       Y1                                                 
+AntennaUnitGroup=S4C2C7,AntennaNearUnit=RET1,RetSubUnit=1 30                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU4-270-ANT2-Y1-L1800+L2100+U2100      
+AntennaUnitGroup=S4C2C7,AntennaNearUnit=RET2                                                                            CB00CB1540051507-R1 1 (ENABLED)                       R1                                                 
+AntennaUnitGroup=S4C2C7,AntennaNearUnit=RET2,RetSubUnit=1 74                    ODI-15E18KJJ-G          140     0                           1 (ENABLED)      3 (IDLE)                  YAKYU4-270-ANT1-R1-L0800+G0900            
+AntennaUnitGroup=S4C2C7,AntennaNearUnit=RET4                                                                            CB00CB1540051507-Y2 1 (ENABLED)                       Y2                                                 
+AntennaUnitGroup=S4C2C7,AntennaNearUnit=RET4,RetSubUnit=1 30                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU4-270-ANT2-Y2-L1800+L2100+U2100      
+=================================================================================================================
+Total: 24 MOs
+
+Added 24 MOs to group: hget_group
+
+Log close: 210522-112313 - /mnt/e/Job/RET/Ericsson-RET/logs/OFFLINE_KGET_OFFLINE_YAKYUL_dcg_k_RETinput.log
+
+OFFLINE_KGET_OFFLINE_YAKYUL_DCG_K> netconf /mnt/e/Job/RET/Ericsson-RET/scripts/OFFLINE_KGET_OFFLINE_YAKYUL_dcg_k_TEST11.xml
+
+Command unavailable in offline mode.
+
+OFFLINE_KGET_OFFLINE_YAKYUL_DCG_K> ###
+
+OFFLINE_KGET_OFFLINE_YAKYUL_DCG_K> lt AuPort|RetSubUnit|AntennaNearUnit|AntennaSubunit|AntennaUnitGroup
+
+210522-11:23:23 OFFLINE_KGET_OFFLINE_YAKYUL_dcg_k 21.0f MSRBS_NODE_MODEL_20.Q2_453.28212.68_577c stopfile=/tmp/7084
+
+In offline mode, the syntax is: "lt all" or "lt /path/to/modump"
+
+OFFLINE_KGET_OFFLINE_YAKYUL_DCG_K> hgetm AntennaNearUnit|RetSubUnit iuantAntennaModelNumber|connectionState|operationalState|userLabel|uniqueId|Tilt
+
+210522-11:23:23 OFFLINE_KGET_OFFLINE_YAKYUL_dcg_k 21.0f MSRBS_NODE_MODEL_20.Q2_453.28212.68_577c stopfile=/tmp/7084
+
+=================================================================================================================
+MO                                                        electricalAntennaTilt iuantAntennaModelNumber maxTilt minTilt onUnitUniqueId      operationalState tiltChangeStatus uniqueId userLabel                                 
+=================================================================================================================
+AntennaUnitGroup=S1C2C7,AntennaNearUnit=RET1                                                                            CB00CB1540070921-Y1 1 (ENABLED)                       Y1                                                 
+AntennaUnitGroup=S1C2C7,AntennaNearUnit=RET1,RetSubUnit=1 30                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU1-000-ANT2-Y1-L1800+L2600+L2100+U2100
+AntennaUnitGroup=S1C2C7,AntennaNearUnit=RET2                                                                            CB00CB1540070921-R1 1 (ENABLED)                       R1                                                 
+AntennaUnitGroup=S1C2C7,AntennaNearUnit=RET2,RetSubUnit=1 74                    ODI-15E18KJJ-G          140     0                           1 (ENABLED)      3 (IDLE)                  YAKYU1-000-ANT1-R1-L0800+G0900            
+AntennaUnitGroup=S1C2C7,AntennaNearUnit=RET4                                                                            CB00CB1540070921-Y2 1 (ENABLED)                       Y2                                                 
+AntennaUnitGroup=S1C2C7,AntennaNearUnit=RET4,RetSubUnit=1 30                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU1-000-ANT2-Y2-L1800+L2600+L2100+U2100
+AntennaUnitGroup=S2C2C7,AntennaNearUnit=RET1                                                                            CB00CB1540081803-Y1 1 (ENABLED)                       Y1                                                 
+AntennaUnitGroup=S2C2C7,AntennaNearUnit=RET1,RetSubUnit=1 30                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU2-090-ANT2-Y1-L1800+L2100+U2100      
+AntennaUnitGroup=S2C2C7,AntennaNearUnit=RET2                                                                            CB00CB1540081803-R1 1 (ENABLED)                       R1                                                 
+AntennaUnitGroup=S2C2C7,AntennaNearUnit=RET2,RetSubUnit=1 0                     ODI-15E18KJJ-G          140     0                           1 (ENABLED)      3 (IDLE)                  YAKYU2-090-ANT1-R1-L0800+G0900            
+AntennaUnitGroup=S2C2C7,AntennaNearUnit=RET4                                                                            CB00CB1540081803-Y2 1 (ENABLED)                       Y2                                                 
+AntennaUnitGroup=S2C2C7,AntennaNearUnit=RET4,RetSubUnit=1 30                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU2-090-ANT2-Y2-L1800+L2100+U2100      
+AntennaUnitGroup=S3C2C7,AntennaNearUnit=RET1                                                                            CB00CB1540086463-Y1 1 (ENABLED)                       Y1                                                 
+AntennaUnitGroup=S3C2C7,AntennaNearUnit=RET1,RetSubUnit=1 60                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU3-180-ANT2-Y1-L1800+L2100+U2100      
+AntennaUnitGroup=S3C2C7,AntennaNearUnit=RET2                                                                            CB00CB1540086463-R1 1 (ENABLED)                       R1                                                 
+AntennaUnitGroup=S3C2C7,AntennaNearUnit=RET2,RetSubUnit=1 74                    ODI-15E18KJJ-G          140     0                           1 (ENABLED)      3 (IDLE)                  YAKYU3-180-ANT1-R1-L0800+G0900            
+AntennaUnitGroup=S3C2C7,AntennaNearUnit=RET4                                                                            CB00CB1540086463-Y2 1 (ENABLED)                       Y2                                                 
+AntennaUnitGroup=S3C2C7,AntennaNearUnit=RET4,RetSubUnit=1 60                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU3-180-ANT2-Y2-L1800+L2100+U2100      
+AntennaUnitGroup=S4C2C7,AntennaNearUnit=RET1                                                                            CB00CB1540051507-Y1 1 (ENABLED)                       Y1                                                 
+AntennaUnitGroup=S4C2C7,AntennaNearUnit=RET1,RetSubUnit=1 30                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU4-270-ANT2-Y1-L1800+L2100+U2100      
+AntennaUnitGroup=S4C2C7,AntennaNearUnit=RET2                                                                            CB00CB1540051507-R1 1 (ENABLED)                       R1                                                 
+AntennaUnitGroup=S4C2C7,AntennaNearUnit=RET2,RetSubUnit=1 74                    ODI-15E18KJJ-G          140     0                           1 (ENABLED)      3 (IDLE)                  YAKYU4-270-ANT1-R1-L0800+G0900            
+AntennaUnitGroup=S4C2C7,AntennaNearUnit=RET4                                                                            CB00CB1540051507-Y2 1 (ENABLED)                       Y2                                                 
+AntennaUnitGroup=S4C2C7,AntennaNearUnit=RET4,RetSubUnit=1 30                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU4-270-ANT2-Y2-L1800+L2100+U2100      
+=================================================================================================================
+Total: 24 MOs
+
+Added 24 MOs to group: hget_group
+
+Log close: 210522-112323 - /mnt/e/Job/RET/Ericsson-RET/logs/OFFLINE_KGET_OFFLINE_YAKYUL_dcg_k_RETinput.log
+
+OFFLINE_KGET_OFFLINE_YAKYUL_DCG_K> netconf /mnt/e/Job/RET/Ericsson-RET/scripts/OFFLINE_KGET_OFFLINE_YAKYUL_dcg_k_TEST11.xml
+
+Command unavailable in offline mode.
+
+OFFLINE_KGET_OFFLINE_YAKYUL_DCG_K> ###
+
+OFFLINE_KGET_OFFLINE_YAKYUL_DCG_K> lt AuPort|RetSubUnit|AntennaNearUnit|AntennaSubunit|AntennaUnitGroup
+
+210522-11:23:56 OFFLINE_KGET_OFFLINE_YAKYUL_dcg_k 21.0f MSRBS_NODE_MODEL_20.Q2_453.28212.68_577c stopfile=/tmp/7084
+
+In offline mode, the syntax is: "lt all" or "lt /path/to/modump"
+
+OFFLINE_KGET_OFFLINE_YAKYUL_DCG_K> hgetm AntennaNearUnit|RetSubUnit iuantAntennaModelNumber|connectionState|operationalState|userLabel|uniqueId|Tilt
+
+210522-11:23:56 OFFLINE_KGET_OFFLINE_YAKYUL_dcg_k 21.0f MSRBS_NODE_MODEL_20.Q2_453.28212.68_577c stopfile=/tmp/7084
+
+=================================================================================================================
+MO                                                        electricalAntennaTilt iuantAntennaModelNumber maxTilt minTilt onUnitUniqueId      operationalState tiltChangeStatus uniqueId userLabel                                 
+=================================================================================================================
+AntennaUnitGroup=S1C2C7,AntennaNearUnit=RET1                                                                            CB00CB1540070921-Y1 1 (ENABLED)                       Y1                                                 
+AntennaUnitGroup=S1C2C7,AntennaNearUnit=RET1,RetSubUnit=1 30                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU1-000-ANT2-Y1-L1800+L2600+L2100+U2100
+AntennaUnitGroup=S1C2C7,AntennaNearUnit=RET2                                                                            CB00CB1540070921-R1 1 (ENABLED)                       R1                                                 
+AntennaUnitGroup=S1C2C7,AntennaNearUnit=RET2,RetSubUnit=1 74                    ODI-15E18KJJ-G          140     0                           1 (ENABLED)      3 (IDLE)                  YAKYU1-000-ANT1-R1-L0800+G0900            
+AntennaUnitGroup=S1C2C7,AntennaNearUnit=RET4                                                                            CB00CB1540070921-Y2 1 (ENABLED)                       Y2                                                 
+AntennaUnitGroup=S1C2C7,AntennaNearUnit=RET4,RetSubUnit=1 30                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU1-000-ANT2-Y2-L1800+L2600+L2100+U2100
+AntennaUnitGroup=S2C2C7,AntennaNearUnit=RET1                                                                            CB00CB1540081803-Y1 1 (ENABLED)                       Y1                                                 
+AntennaUnitGroup=S2C2C7,AntennaNearUnit=RET1,RetSubUnit=1 30                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU2-090-ANT2-Y1-L1800+L2100+U2100      
+AntennaUnitGroup=S2C2C7,AntennaNearUnit=RET2                                                                            CB00CB1540081803-R1 1 (ENABLED)                       R1                                                 
+AntennaUnitGroup=S2C2C7,AntennaNearUnit=RET2,RetSubUnit=1 0                     ODI-15E18KJJ-G          140     0                           1 (ENABLED)      3 (IDLE)                  YAKYU2-090-ANT1-R1-L0800+G0900            
+AntennaUnitGroup=S2C2C7,AntennaNearUnit=RET4                                                                            CB00CB1540081803-Y2 1 (ENABLED)                       Y2                                                 
+AntennaUnitGroup=S2C2C7,AntennaNearUnit=RET4,RetSubUnit=1 30                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU2-090-ANT2-Y2-L1800+L2100+U2100      
+AntennaUnitGroup=S3C2C7,AntennaNearUnit=RET1                                                                            CB00CB1540086463-Y1 1 (ENABLED)                       Y1                                                 
+AntennaUnitGroup=S3C2C7,AntennaNearUnit=RET1,RetSubUnit=1 60                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU3-180-ANT2-Y1-L1800+L2100+U2100      
+AntennaUnitGroup=S3C2C7,AntennaNearUnit=RET2                                                                            CB00CB1540086463-R1 1 (ENABLED)                       R1                                                 
+AntennaUnitGroup=S3C2C7,AntennaNearUnit=RET2,RetSubUnit=1 74                    ODI-15E18KJJ-G          140     0                           1 (ENABLED)      3 (IDLE)                  YAKYU3-180-ANT1-R1-L0800+G0900            
+AntennaUnitGroup=S3C2C7,AntennaNearUnit=RET4                                                                            CB00CB1540086463-Y2 1 (ENABLED)                       Y2                                                 
+AntennaUnitGroup=S3C2C7,AntennaNearUnit=RET4,RetSubUnit=1 60                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU3-180-ANT2-Y2-L1800+L2100+U2100      
+AntennaUnitGroup=S4C2C7,AntennaNearUnit=RET1                                                                            CB00CB1540051507-Y1 1 (ENABLED)                       Y1                                                 
+AntennaUnitGroup=S4C2C7,AntennaNearUnit=RET1,RetSubUnit=1 30                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU4-270-ANT2-Y1-L1800+L2100+U2100      
+AntennaUnitGroup=S4C2C7,AntennaNearUnit=RET2                                                                            CB00CB1540051507-R1 1 (ENABLED)                       R1                                                 
+AntennaUnitGroup=S4C2C7,AntennaNearUnit=RET2,RetSubUnit=1 74                    ODI-15E18KJJ-G          140     0                           1 (ENABLED)      3 (IDLE)                  YAKYU4-270-ANT1-R1-L0800+G0900            
+AntennaUnitGroup=S4C2C7,AntennaNearUnit=RET4                                                                            CB00CB1540051507-Y2 1 (ENABLED)                       Y2                                                 
+AntennaUnitGroup=S4C2C7,AntennaNearUnit=RET4,RetSubUnit=1 30                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU4-270-ANT2-Y2-L1800+L2100+U2100      
+=================================================================================================================
+Total: 24 MOs
+
+Added 24 MOs to group: hget_group
+
+Log close: 210522-112356 - /mnt/e/Job/RET/Ericsson-RET/logs/OFFLINE_KGET_OFFLINE_YAKYUL_dcg_k_RETinput.log
+
+OFFLINE_KGET_OFFLINE_YAKYUL_DCG_K> netconf /mnt/e/Job/RET/Ericsson-RET/scripts/OFFLINE_KGET_OFFLINE_YAKYUL_dcg_k_TEST11.xml
+
+Command unavailable in offline mode.
+
+OFFLINE_KGET_OFFLINE_YAKYUL_DCG_K> ###
+
+OFFLINE_KGET_OFFLINE_YAKYUL_DCG_K> lt AuPort|RetSubUnit|AntennaNearUnit|AntennaSubunit|AntennaUnitGroup
+
+210522-11:24:52 OFFLINE_KGET_OFFLINE_YAKYUL_dcg_k 21.0f MSRBS_NODE_MODEL_20.Q2_453.28212.68_577c stopfile=/tmp/7084
+
+In offline mode, the syntax is: "lt all" or "lt /path/to/modump"
+
+OFFLINE_KGET_OFFLINE_YAKYUL_DCG_K> hgetm AntennaNearUnit|RetSubUnit iuantAntennaModelNumber|connectionState|operationalState|userLabel|uniqueId|Tilt
+
+210522-11:24:52 OFFLINE_KGET_OFFLINE_YAKYUL_dcg_k 21.0f MSRBS_NODE_MODEL_20.Q2_453.28212.68_577c stopfile=/tmp/7084
+
+=================================================================================================================
+MO                                                        electricalAntennaTilt iuantAntennaModelNumber maxTilt minTilt onUnitUniqueId      operationalState tiltChangeStatus uniqueId userLabel                                 
+=================================================================================================================
+AntennaUnitGroup=S1C2C7,AntennaNearUnit=RET1                                                                            CB00CB1540070921-Y1 1 (ENABLED)                       Y1                                                 
+AntennaUnitGroup=S1C2C7,AntennaNearUnit=RET1,RetSubUnit=1 30                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU1-000-ANT2-Y1-L1800+L2600+L2100+U2100
+AntennaUnitGroup=S1C2C7,AntennaNearUnit=RET2                                                                            CB00CB1540070921-R1 1 (ENABLED)                       R1                                                 
+AntennaUnitGroup=S1C2C7,AntennaNearUnit=RET2,RetSubUnit=1 74                    ODI-15E18KJJ-G          140     0                           1 (ENABLED)      3 (IDLE)                  YAKYU1-000-ANT1-R1-L0800+G0900            
+AntennaUnitGroup=S1C2C7,AntennaNearUnit=RET4                                                                            CB00CB1540070921-Y2 1 (ENABLED)                       Y2                                                 
+AntennaUnitGroup=S1C2C7,AntennaNearUnit=RET4,RetSubUnit=1 30                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU1-000-ANT2-Y2-L1800+L2600+L2100+U2100
+AntennaUnitGroup=S2C2C7,AntennaNearUnit=RET1                                                                            CB00CB1540081803-Y1 1 (ENABLED)                       Y1                                                 
+AntennaUnitGroup=S2C2C7,AntennaNearUnit=RET1,RetSubUnit=1 30                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU2-090-ANT2-Y1-L1800+L2100+U2100      
+AntennaUnitGroup=S2C2C7,AntennaNearUnit=RET2                                                                            CB00CB1540081803-R1 1 (ENABLED)                       R1                                                 
+AntennaUnitGroup=S2C2C7,AntennaNearUnit=RET2,RetSubUnit=1 0                     ODI-15E18KJJ-G          140     0                           1 (ENABLED)      3 (IDLE)                  YAKYU2-090-ANT1-R1-L0800+G0900            
+AntennaUnitGroup=S2C2C7,AntennaNearUnit=RET4                                                                            CB00CB1540081803-Y2 1 (ENABLED)                       Y2                                                 
+AntennaUnitGroup=S2C2C7,AntennaNearUnit=RET4,RetSubUnit=1 30                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU2-090-ANT2-Y2-L1800+L2100+U2100      
+AntennaUnitGroup=S3C2C7,AntennaNearUnit=RET1                                                                            CB00CB1540086463-Y1 1 (ENABLED)                       Y1                                                 
+AntennaUnitGroup=S3C2C7,AntennaNearUnit=RET1,RetSubUnit=1 60                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU3-180-ANT2-Y1-L1800+L2100+U2100      
+AntennaUnitGroup=S3C2C7,AntennaNearUnit=RET2                                                                            CB00CB1540086463-R1 1 (ENABLED)                       R1                                                 
+AntennaUnitGroup=S3C2C7,AntennaNearUnit=RET2,RetSubUnit=1 74                    ODI-15E18KJJ-G          140     0                           1 (ENABLED)      3 (IDLE)                  YAKYU3-180-ANT1-R1-L0800+G0900            
+AntennaUnitGroup=S3C2C7,AntennaNearUnit=RET4                                                                            CB00CB1540086463-Y2 1 (ENABLED)                       Y2                                                 
+AntennaUnitGroup=S3C2C7,AntennaNearUnit=RET4,RetSubUnit=1 60                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU3-180-ANT2-Y2-L1800+L2100+U2100      
+AntennaUnitGroup=S4C2C7,AntennaNearUnit=RET1                                                                            CB00CB1540051507-Y1 1 (ENABLED)                       Y1                                                 
+AntennaUnitGroup=S4C2C7,AntennaNearUnit=RET1,RetSubUnit=1 30                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU4-270-ANT2-Y1-L1800+L2100+U2100      
+AntennaUnitGroup=S4C2C7,AntennaNearUnit=RET2                                                                            CB00CB1540051507-R1 1 (ENABLED)                       R1                                                 
+AntennaUnitGroup=S4C2C7,AntennaNearUnit=RET2,RetSubUnit=1 74                    ODI-15E18KJJ-G          140     0                           1 (ENABLED)      3 (IDLE)                  YAKYU4-270-ANT1-R1-L0800+G0900            
+AntennaUnitGroup=S4C2C7,AntennaNearUnit=RET4                                                                            CB00CB1540051507-Y2 1 (ENABLED)                       Y2                                                 
+AntennaUnitGroup=S4C2C7,AntennaNearUnit=RET4,RetSubUnit=1 30                    ODI-15E18KJJ-G          100     0                           1 (ENABLED)      3 (IDLE)                  YAKYU4-270-ANT2-Y2-L1800+L2100+U2100      
+=================================================================================================================
+Total: 24 MOs
+
+Added 24 MOs to group: hget_group
+
+Log close: 210522-112452 - /mnt/e/Job/RET/Ericsson-RET/logs/OFFLINE_KGET_OFFLINE_YAKYUL_dcg_k_RETinput.log

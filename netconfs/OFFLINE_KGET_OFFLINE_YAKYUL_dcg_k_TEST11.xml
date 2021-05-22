@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hello xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+    <capabilities>
+        <capability>urn:ietf:params:netconf:base:1.0</capability>
+        <capability>urn:com:ericsson:ebase:0.1.0</capability>
+        <capability>urn:com:ericsson:ebase:1.1.0</capability>
+    </capabilities>
+</hello>
+]]>]]>
+<rpc message-id="065R15M18JKD" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+    <edit-config>
+        <target>
+            <running />
+        </target>
+        <config xmlns:xc="urn:ietf:params:xml:ns:netconf:base:1.0">
+            <ManagedElement>
+                <managedElementId>1</managedElementId>
+                <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+                <!-- ManagedElement[1],Equipment[1],FieldReplaceableUnit[0-],AntennaNearUnit[0-48],RetSubUnit[0-8] -->
+                <!-- ManagedElement[1],Equipment[1],AntennaUnitGroup[0-],AntennaUnit[0-8],AntennaSubunit[0-8] -->
+                <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+                <Equipment>
+                    <equipmentId>1</equipmentId>
+                    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+                    <!-- Create RET RfPort if missing , requires Radio Unit restart if disabled -->
+                    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+                    <FieldReplaceableUnit>
+                        <fieldReplaceableUnitId>RRU-S2C1</fieldReplaceableUnitId>
+                        <RfPort>
+                            <rfPortId>R</rfPortId>
+                            <administrativeState>UNLOCKED</administrativeState>
+                            <antennaSupervisionActive>false</antennaSupervisionActive>
+                            <automaticANUrecovery>true</automaticANUrecovery>
+                            <vswrSupervisionActive>false</vswrSupervisionActive>
+                            <vswrSupervisionSensitivity>-1</vswrSupervisionSensitivity>
+                        </RfPort>
+                    </FieldReplaceableUnit>
+                    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+                    <!-- Equipment=1,AntennaUnitGroup=S2C1,AntennaNearUnit=RET1 -->
+                    <!-- Equipment=1,AntennaUnitGroup=S2C1,AntennaNearUnit=RET1,RetSubUnit=1 -->
+                    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+                    <AntennaUnitGroup>
+                        <antennaUnitGroupId>S2C1</antennaUnitGroupId>
+                        <AntennaNearUnit>
+                            <antennaNearUnitId>RET1</antennaNearUnitId>
+                            <administrativeState>UNLOCKED</administrativeState>
+                            <rfPortRef>ManagedElement=1,Equipment=1,FieldReplaceableUnit=RRU-S2C1,RfPort=R</rfPortRef>
+                            <uniqueId>03</uniqueId>
+                            <RetSubUnit>
+                                <retSubUnitId>1</retSubUnitId>
+                                <electricalAntennaTilt>54</electricalAntennaTilt>
+                                <userLabel>TEST11-XXX-ANT1-B1-EMPTY</userLabel>
+                            </RetSubUnit>
+                        </AntennaNearUnit>
+                        <AntennaUnit>
+                            <antennaUnitId>1</antennaUnitId>
+                            <AntennaSubunit>
+                                <antennaSubunitId>1</antennaSubunitId>
+                                <retSubunitRef>ManagedElement=1,Equipment=1,AntennaUnitGroup=S2C1,AntennaNearUnit=RET1,RetSubUnit=1</retSubunitRef>
+                            </AntennaSubunit>
+                        </AntennaUnit>
+                    </AntennaUnitGroup>
+                    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+                    <!-- Equipment=1,AntennaUnitGroup=S2C1,AntennaNearUnit=RET4 -->
+                    <!-- Equipment=1,AntennaUnitGroup=S2C1,AntennaNearUnit=RET4,RetSubUnit=1 -->
+                    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+                    <AntennaUnitGroup>
+                        <antennaUnitGroupId>S2C1</antennaUnitGroupId>
+                        <AntennaNearUnit>
+                            <antennaNearUnitId>RET4</antennaNearUnitId>
+                            <administrativeState>UNLOCKED</administrativeState>
+                            <rfPortRef>ManagedElement=1,Equipment=1,FieldReplaceableUnit=RRU-S2C1,RfPort=R</rfPortRef>
+                            <uniqueId>02</uniqueId>
+                            <RetSubUnit>
+                                <retSubUnitId>1</retSubUnitId>
+                                <electricalAntennaTilt>54</electricalAntennaTilt>
+                                <userLabel>TEST11-XXX-ANT1-B2-EMPTY</userLabel>
+                            </RetSubUnit>
+                        </AntennaNearUnit>
+                        <AntennaUnit>
+                            <antennaUnitId>1</antennaUnitId>
+                            <AntennaSubunit>
+                                <antennaSubunitId>B4</antennaSubunitId>
+                                <retSubunitRef>ManagedElement=1,Equipment=1,AntennaUnitGroup=S2C1,AntennaNearUnit=RET4,RetSubUnit=1</retSubunitRef>
+                            </AntennaSubunit>
+                        </AntennaUnit>
+                    </AntennaUnitGroup>
+                    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+                    <!-- Equipment=1,AntennaUnitGroup=S2C1,AntennaNearUnit=RET2 -->
+                    <!-- Equipment=1,AntennaUnitGroup=S2C1,AntennaNearUnit=RET2,RetSubUnit=1 -->
+                    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+                    <AntennaUnitGroup>
+                        <antennaUnitGroupId>S2C1</antennaUnitGroupId>
+                        <AntennaNearUnit>
+                            <antennaNearUnitId>RET2</antennaNearUnitId>
+                            <administrativeState>UNLOCKED</administrativeState>
+                            <rfPortRef>ManagedElement=1,Equipment=1,FieldReplaceableUnit=RRU-S2C1,RfPort=R</rfPortRef>
+                            <uniqueId>05</uniqueId>
+                            <RetSubUnit>
+                                <retSubUnitId>1</retSubUnitId>
+                                <electricalAntennaTilt>74</electricalAntennaTilt>
+                                <userLabel>TEST11-XXX-ANT1-R1-EMPTY</userLabel>
+                            </RetSubUnit>
+                        </AntennaNearUnit>
+                        <AntennaUnit>
+                            <antennaUnitId>1</antennaUnitId>
+                            <AntennaSubunit>
+                                <antennaSubunitId>B2</antennaSubunitId>
+                                <retSubunitRef>ManagedElement=1,Equipment=1,AntennaUnitGroup=S2C1,AntennaNearUnit=RET2,RetSubUnit=1</retSubunitRef>
+                            </AntennaSubunit>
+                        </AntennaUnit>
+                    </AntennaUnitGroup>
+                    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+                    <!-- Equipment=1,AntennaUnitGroup=S2C1,AntennaNearUnit=RET6 -->
+                    <!-- Equipment=1,AntennaUnitGroup=S2C1,AntennaNearUnit=RET6,RetSubUnit=1 -->
+                    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+                    <AntennaUnitGroup>
+                        <antennaUnitGroupId>S2C1</antennaUnitGroupId>
+                        <AntennaNearUnit>
+                            <antennaNearUnitId>RET6</antennaNearUnitId>
+                            <administrativeState>UNLOCKED</administrativeState>
+                            <rfPortRef>ManagedElement=1,Equipment=1,FieldReplaceableUnit=RRU-S2C1,RfPort=R</rfPortRef>
+                            <uniqueId>08</uniqueId>
+                            <RetSubUnit>
+                                <retSubUnitId>1</retSubUnitId>
+                                <electricalAntennaTilt>74</electricalAntennaTilt>
+                                <userLabel>TEST11-XXX-ANT1-R2-EMPTY</userLabel>
+                            </RetSubUnit>
+                        </AntennaNearUnit>
+                        <AntennaUnit>
+                            <antennaUnitId>1</antennaUnitId>
+                            <AntennaSubunit>
+                                <antennaSubunitId>B6</antennaSubunitId>
+                                <retSubunitRef>ManagedElement=1,Equipment=1,AntennaUnitGroup=S2C1,AntennaNearUnit=RET6,RetSubUnit=1</retSubunitRef>
+                            </AntennaSubunit>
+                        </AntennaUnit>
+                    </AntennaUnitGroup>
+                    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+                    <!-- Equipment=1,AntennaUnitGroup=S2C1,AntennaNearUnit=RET3 -->
+                    <!-- Equipment=1,AntennaUnitGroup=S2C1,AntennaNearUnit=RET3,RetSubUnit=1 -->
+                    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+                    <AntennaUnitGroup>
+                        <antennaUnitGroupId>S2C1</antennaUnitGroupId>
+                        <AntennaNearUnit>
+                            <antennaNearUnitId>RET3</antennaNearUnitId>
+                            <administrativeState>UNLOCKED</administrativeState>
+                            <rfPortRef>ManagedElement=1,Equipment=1,FieldReplaceableUnit=RRU-S2C1,RfPort=R</rfPortRef>
+                            <uniqueId>07</uniqueId>
+                            <RetSubUnit>
+                                <retSubUnitId>1</retSubUnitId>
+                                <electricalAntennaTilt>54</electricalAntennaTilt>
+                                <userLabel>TEST11-XXX-ANT1-Y1-EMPTY</userLabel>
+                            </RetSubUnit>
+                        </AntennaNearUnit>
+                        <AntennaUnit>
+                            <antennaUnitId>1</antennaUnitId>
+                            <AntennaSubunit>
+                                <antennaSubunitId>B3</antennaSubunitId>
+                                <retSubunitRef>ManagedElement=1,Equipment=1,AntennaUnitGroup=S2C1,AntennaNearUnit=RET3,RetSubUnit=1</retSubunitRef>
+                            </AntennaSubunit>
+                        </AntennaUnit>
+                    </AntennaUnitGroup>
+                    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+                    <!-- Equipment=1,AntennaUnitGroup=S2C1,AntennaNearUnit=RET7 -->
+                    <!-- Equipment=1,AntennaUnitGroup=S2C1,AntennaNearUnit=RET7,RetSubUnit=1 -->
+                    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+                    <AntennaUnitGroup>
+                        <antennaUnitGroupId>S2C1</antennaUnitGroupId>
+                        <AntennaNearUnit>
+                            <antennaNearUnitId>RET7</antennaNearUnitId>
+                            <administrativeState>UNLOCKED</administrativeState>
+                            <rfPortRef>ManagedElement=1,Equipment=1,FieldReplaceableUnit=RRU-S2C1,RfPort=R</rfPortRef>
+                            <uniqueId>06</uniqueId>
+                            <RetSubUnit>
+                                <retSubUnitId>1</retSubUnitId>
+                                <electricalAntennaTilt>54</electricalAntennaTilt>
+                                <userLabel>TEST11-XXX-ANT1-Y2-EMPTY</userLabel>
+                            </RetSubUnit>
+                        </AntennaNearUnit>
+                        <AntennaUnit>
+                            <antennaUnitId>1</antennaUnitId>
+                            <AntennaSubunit>
+                                <antennaSubunitId>B7</antennaSubunitId>
+                                <retSubunitRef>ManagedElement=1,Equipment=1,AntennaUnitGroup=S2C1,AntennaNearUnit=RET7,RetSubUnit=1</retSubunitRef>
+                            </AntennaSubunit>
+                        </AntennaUnit>
+                    </AntennaUnitGroup>
+                    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+                    <!-- Equipment=1,AntennaUnitGroup=S2C1,AntennaNearUnit=RET5 -->
+                    <!-- Equipment=1,AntennaUnitGroup=S2C1,AntennaNearUnit=RET5,RetSubUnit=1 -->
+                    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+                    <AntennaUnitGroup>
+                        <antennaUnitGroupId>S2C1</antennaUnitGroupId>
+                        <AntennaNearUnit>
+                            <antennaNearUnitId>RET5</antennaNearUnitId>
+                            <administrativeState>UNLOCKED</administrativeState>
+                            <rfPortRef>ManagedElement=1,Equipment=1,FieldReplaceableUnit=RRU-S2C1,RfPort=R</rfPortRef>
+                            <uniqueId>04</uniqueId>
+                            <RetSubUnit>
+                                <retSubUnitId>1</retSubUnitId>
+                                <electricalAntennaTilt>54</electricalAntennaTilt>
+                                <userLabel>TEST11-XXX-ANT1-Y3-EMPTY</userLabel>
+                            </RetSubUnit>
+                        </AntennaNearUnit>
+                        <AntennaUnit>
+                            <antennaUnitId>1</antennaUnitId>
+                            <AntennaSubunit>
+                                <antennaSubunitId>B5</antennaSubunitId>
+                                <retSubunitRef>ManagedElement=1,Equipment=1,AntennaUnitGroup=S2C1,AntennaNearUnit=RET5,RetSubUnit=1</retSubunitRef>
+                            </AntennaSubunit>
+                        </AntennaUnit>
+                    </AntennaUnitGroup>
+                    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+                    <!-- Equipment=1,AntennaUnitGroup=S2C1,AntennaNearUnit=RET8 -->
+                    <!-- Equipment=1,AntennaUnitGroup=S2C1,AntennaNearUnit=RET8,RetSubUnit=1 -->
+                    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+                    <AntennaUnitGroup>
+                        <antennaUnitGroupId>S2C1</antennaUnitGroupId>
+                        <AntennaNearUnit>
+                            <antennaNearUnitId>RET8</antennaNearUnitId>
+                            <administrativeState>UNLOCKED</administrativeState>
+                            <rfPortRef>ManagedElement=1,Equipment=1,FieldReplaceableUnit=RRU-S2C1,RfPort=R</rfPortRef>
+                            <uniqueId>01</uniqueId>
+                            <RetSubUnit>
+                                <retSubUnitId>1</retSubUnitId>
+                                <electricalAntennaTilt>54</electricalAntennaTilt>
+                                <userLabel>TEST11-XXX-ANT1-Y4-EMPTY</userLabel>
+                            </RetSubUnit>
+                        </AntennaNearUnit>
+                        <AntennaUnit>
+                            <antennaUnitId>1</antennaUnitId>
+                            <AntennaSubunit>
+                                <antennaSubunitId>B8</antennaSubunitId>
+                                <retSubunitRef>ManagedElement=1,Equipment=1,AntennaUnitGroup=S2C1,AntennaNearUnit=RET8,RetSubUnit=1</retSubunitRef>
+                            </AntennaSubunit>
+                        </AntennaUnit>
+                    </AntennaUnitGroup>
+                </Equipment>
+            </ManagedElement>
+        </config>
+    </edit-config>
+</rpc>
+]]>]]>
+<rpc message-id="close-session" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+    <close-session />
+</rpc>
+]]>]]>
