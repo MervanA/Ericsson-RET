@@ -4,8 +4,6 @@ script was written to Standarize RET implementation, verify and minimize user in
 
 Script Name: define_RET.mos
 
-Update date: 19.05.2021
-
 make sure netconf files are in the correct PATH
 
 ## SYNTAX
