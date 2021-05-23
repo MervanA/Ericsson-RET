@@ -179,16 +179,12 @@ func ANTENNA_FUNC
     prs $UNITRDN,RfPort=[^R]
     $noOfRf = $nr_of_mos
     ABB4_1A_FUNC
+    set AntennaUnitGroup=$UNIT,AntennaUnit=1,AntennaSubunit=[^1B] retSubunitRef
+    del AntennaUnitGroup=$UNIT,AntennaUnit=1,AntennaSubunit=[^1B]
   else
     ## AntennaUnit [2,3,4] are the 2nd 3rd and 4th cascaded physical antennas
     set AntennaUnitGroup=$UNIT,AntennaUnit=1,AntennaSubunit=[^1B] retSubunitRef
-    set AntennaUnitGroup=$UNIT,AntennaUnit=2,AntennaSubunit=[^1B] retSubunitRef
-    set AntennaUnitGroup=$UNIT,AntennaUnit=3,AntennaSubunit=[^1B] retSubunitRef
-    set AntennaUnitGroup=$UNIT,AntennaUnit=4,AntennaSubunit=[^1B] retSubunitRef
     del AntennaUnitGroup=$UNIT,AntennaUnit=1,AntennaSubunit=[^1B]
-    del AntennaUnitGroup=$UNIT,AntennaUnit=2,AntennaSubunit=[^1B]
-    del AntennaUnitGroup=$UNIT,AntennaUnit=3,AntennaSubunit=[^1B]
-    del AntennaUnitGroup=$UNIT,AntennaUnit=4,AntennaSubunit=[^1B]
   fi
 endfunc
 
@@ -211,10 +207,6 @@ func TEMPLATE_FUNC
     !sed -i 's/{SERIAL1}/$serial1/g' $netconfs/$nodename_$SITESECTOR.xml
     !sed -i 's/{SERIAL2}/$serial2/g' $netconfs/$nodename_$SITESECTOR.xml
   fi
-endfunc
-
-### CASCADE MANAGEMENT
-func CASCADES_FUNC
 endfunc
 
 
