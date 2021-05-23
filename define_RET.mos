@@ -10,7 +10,6 @@
 //=======================================================================================
 //SYNTAX:
 //  run /mnt/e/Job/RET/Ericsson-RET/define_RET.mos SITESECTOR,RADIO,DIR,CONFIGID
-//  run /mnt/e/Job/RET/Ericsson-RET/define_RET.mos --cascaded
 //  or
 //  run /mnt/e/Job/RET/Ericsson-RET/define_RET.mos --help
 //  run /mnt/e/Job/RET/Ericsson-RET/define_RET.mos --lookup ANTENNAID
@@ -20,7 +19,7 @@
 //  SITESECTOR,RADIO,DIR,CONFIGID
 //
 //    1)SITESECTOR      :is 6 characters, 5 is siteId and last is Sector indicator
-//    2)RADIO           :is the Radio unit's ID with rfport=R used to power the RET, if ID provided is not configured on site script will fail.
+//    2)RADIO           :is the Radio unit's ID with Rfport=R used to power the RET, if ID provided is not configured on site script will fail.
 //    3)AZIMUTH/DIR     :can not be more than 3 characters and value d can be used to set default value of "XXX"
 //    4)CONFIGID        :supported CONFIGID and ANTENNA models are as below >
 //      #######################
@@ -59,6 +58,8 @@ confbdl+
 $logpath := /mnt/e/Job/RET/Ericsson-RET/logs
 $templates := /mnt/e/Job/RET/Ericsson-RET/templates
 $netconfs := /mnt/e/Job/RET/Ericsson-RET/netconfs
+###
+run $templates/functions_RET.mos
 ####################################
 ## value COMMAND INPUT
 ####################################
@@ -71,8 +72,8 @@ if $all_input ~ $all_pattern
 else if $all_input ~ --help
   //getline used to bring echo $0 output as input which is the command/script used to run this file
   $mos = `$gawk 'BEGIN{("echo $0") | getline; print $2; close("echo $0")}'`
-  //printout between lines 10 and 52 of the file $mos and delete leading backslashes
-  ! $gawk '(FNR>=10 && FNR<=52){gsub(/^\/+/,"");print}' $mos
+  //printout between lines 10 and 51 of the file $mos and delete leading backslashes
+  ! $gawk '(FNR>=10 && FNR<=51){gsub(/^\/+/,"");print}' $mos
   unset small
   l-
   return
@@ -93,7 +94,7 @@ else if $all_input ~ ^$ || $all_input !~ $all_pattern || $all_input !~ --lookup 
   ! echo "Invalid Syntax!!"
   ! echo ""
   ! echo "Valid Syntax:"
-  ! echo "run /mnt/e/Job/RET/Ericsson-RET/define_RET.mos SITE1,S1C1,D,1X"
+  ! echo "run /mnt/e/Job/RET/Ericsson-RET/define_RET.mos SITEX1,S1C1,D,4A"
   ! echo "run /mnt/e/Job/RET/Ericsson-RET/define_RET.mos --lookup 065R15M18JKD"
   ! echo "run /mnt/e/Job/RET/Ericsson-RET/define_RET.mos --help"
   ! echo "======================================================================================="
@@ -103,12 +104,6 @@ else if $all_input ~ ^$ || $all_input !~ $all_pattern || $all_input !~ --lookup 
 else
   ! $gawk -v NN="$nodename" 'BEGIN{printf "\n%s\t%s\n%s\t%s\n%s\n\n", "SITE:", NN, "INPUT:", "$all_input", strftime("%F_%T")}' | tee -a $logpath/$nodename_RETinput.log
 fi
-
-
-####################################
-## load FUNCTIONS
-####################################
-run $templates/functions_RET.mos
 
 
 ####################################
