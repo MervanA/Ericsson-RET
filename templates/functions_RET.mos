@@ -208,8 +208,8 @@ func TEMPLATE_FUNC
     !sed 's/{SITESECTOR}/$SITESECTOR/g' $templates/$xmlFile > $netconfs/$nodename_$SITESECTOR.xml
     !sed -i 's/{RADIO}/$UNIT/g' $netconfs/$nodename_$SITESECTOR.xml
     !sed -i 's/{DIR}/$DIR/g' $netconfs/$nodename_$SITESECTOR.xml
-    !sed -i 's/{SERIAL1}/$serial1/g' $netconfs/$nodename_$SITESECTOR.xml
-    !sed -i 's/{SERIAL2}/$serial2/g' $netconfs/$nodename_$SITESECTOR.xml
+    !sed -i 's/{SERIAL1}/$serialy/g' $netconfs/$nodename_$SITESECTOR.xml
+    !sed -i 's/{SERIAL2}/$serialyy/g' $netconfs/$nodename_$SITESECTOR.xml
   fi
 endfunc
 
