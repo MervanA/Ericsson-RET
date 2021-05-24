@@ -58,8 +58,8 @@ confbdl+
 $logpath := /mnt/e/Job/RET/Ericsson-RET/logs
 $templates := /mnt/e/Job/RET/Ericsson-RET/templates
 $netconfs := /mnt/e/Job/RET/Ericsson-RET/netconfs
-###
-run $templates/functions_RET.mos
+
+
 ####################################
 ## value COMMAND INPUT
 ####################################
@@ -82,7 +82,7 @@ else if $all_input ~ --lookup
   $lookup = $2
   ! echo ""
   ! echo "======================================================================================="
-  ! $gawk 'NR==1; /$lookup/{print}' $templates/configTable.txt
+  ! $gawk 'NR==1{print}; /$lookup/{print}' $templates/configTable.txt
   ! echo "======================================================================================="
   unset small
   l-
@@ -107,6 +107,12 @@ fi
 
 
 ####################################
+## load FUNCTIONS
+####################################
+run $templates/functions_RET.mos
+
+
+####################################
 ## Sequence FUNCTIONS
 ####################################
 SITESECTOR_FUNC
@@ -114,7 +120,6 @@ UNIT_FUNC
 DIR_FUNC
 CONFIGID_FUNC
 ANTENNA_FUNC
-
 
 ####################################
 ## PREP
@@ -125,13 +130,24 @@ TEMPLATE_FUNC
 ####################################
 ## RUN
 ####################################
-confbdl-
-l-
-##
-l+s $logpath/$nodename_RETinput.log
-netconf $netconfs/$nodename_$SITESECTOR.xml
-###
-lt AuPort|RetSubUnit|AntennaNearUnit|AntennaSubunit|AntennaUnitGroup
-hgetm AntennaNearUnit|RetSubUnit iuantAntennaModelNumber|connectionState|operationalState|userLabel|uniqueId|Tilt
-l-
+$testfile = testfile($netconfs/$nodename_$SITESECTOR.xml)
+if $nr_of_lines != 0
+  confbdl-
+  l-
+  ##
+  l+s $logpath/$nodename_RETinput.log
+  netconf $netconfs/$nodename_$SITESECTOR.xml
+  ###
+  lt AuPort|RetSubUnit|AntennaNearUnit|AntennaSubunit|AntennaUnitGroup
+  hgetm AntennaNearUnit|RetSubUnit iuantAntennaModelNumber|connectionState|operationalState|userLabel|uniqueId|Tilt
+  l-
+else if $nr_of_lines = 0
+  ! echo ""
+  ! echo "======================================================================================="
+  ! echo ""
+  ! echo " nothing configured !!! "
+  ! echo ""
+  ! echo "======================================================================================="
+  l-
+fi
 unset all

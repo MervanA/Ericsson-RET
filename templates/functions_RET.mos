@@ -54,6 +54,11 @@ endfunc
 
 ## verify DIR
 func DIR_FUNC
+  if $input[3] ~ [x|X|d|D]
+    $DIR = XXX
+  else
+    $DIR = `$gawk -v DR="$input[3]" 'BEGIN{if (length(DR)==1) print "00"DR; else if (length(DR)==2) print "0"DR; else if (DR<0 || DR>360) print "XXX"; else print DR}'`
+  fi
   $DIRlen = `$gawk -v DR="$input[3]" 'BEGIN{print length(DR)}'`
   if $DIRlen > 3 || $input[3] ~ ^$
     ! echo ""
@@ -66,11 +71,6 @@ func DIR_FUNC
     unset small
     l-
     return
-  fi
-  if $input[3] ~ [x|X|d|D]
-    $DIR = XXX
-  else
-    $DIR = `$gawk -v DR="$input[3]" 'BEGIN{if (length(DR)==1) print "00"DR; else if (length(DR)==2) print "0"DR; else if (DR<0 || DR>360) print "XXX"; else print DR}'`
   fi
 endfunc
 
@@ -129,9 +129,9 @@ func CONFIGID_FUNC
   unset $check
 endfunc
 
-## singelSerial_FUNC
+## 1X FUNCTION
 func singelSerial_FUNC
-  for 10
+  for 3
     ! echo "AERTUV01    example 123456-XX"
     ! echo "ARETU       example 123456"
     ! echo "RET Id      example RET6, RET7"
@@ -140,20 +140,24 @@ func singelSerial_FUNC
     $retIdx = readinput(please provide the RET Id:  )
     if $serialx !~ ^$ && $retIdx ~ ^RET[1-8][0-6]?$
        break
+    else
+      $1X_check = 1
     fi
   done
 endfunc
 
-### dualSerial_FUNC
+### 2C FUNCTION
 func dualSerial_FUNC
-  for 10
+  for 3
     ! echo "RET1 serial example 123456y"
     ! echo "RET4 serial example 12345yy"
     ! echo ""
-    $serial1 = readinput(please provide RET1 Serial Number:  )
-    $serial2 = readinput(please provide RET4 Serial Number:  )
-    if $serial !~ ^$
+    $serialy = readinput(please provide port y Serial Number:  )
+    $serialyy = readinput(please provide port yy Serial Number:  )
+    if $serialy !~ ^$ && $serialyy !~ ^$
        break
+    else
+      $2C_check = 1
     fi
   done
 endfunc
@@ -182,7 +186,6 @@ func ANTENNA_FUNC
     set AntennaUnitGroup=$UNIT,AntennaUnit=1,AntennaSubunit=[^1B] retSubunitRef
     del AntennaUnitGroup=$UNIT,AntennaUnit=1,AntennaSubunit=[^1B]
   else
-    ## AntennaUnit [2,3,4] are the 2nd 3rd and 4th cascaded physical antennas
     set AntennaUnitGroup=$UNIT,AntennaUnit=1,AntennaSubunit=[^1B] retSubunitRef
     del AntennaUnitGroup=$UNIT,AntennaUnit=1,AntennaSubunit=[^1B]
   fi
@@ -190,17 +193,18 @@ endfunc
 
 ### prep XML 1 antenna
 func TEMPLATE_FUNC
+!rm $netconfs/$nodename_$SITESECTOR.xml 2>&-
   if $input[4] ~ (2A|2A|2B|2D|3A|3B|3B|3B|3C|4A|4A|4B|4B|4C|4D|4E|6A|6B|8B|8C|8D)
     !sed 's/{SITESECTOR}/$SITESECTOR/g' $templates/$xmlFile > $netconfs/$nodename_$SITESECTOR.xml
     !sed -i 's/{RADIO}/$UNIT/g' $netconfs/$nodename_$SITESECTOR.xml
     !sed -i 's/{DIR}/$DIR/g' $netconfs/$nodename_$SITESECTOR.xml
-  else if $input[4] ~ (1X)
+  else if $input[4] ~ (1X) && $1X_check != 1
     !sed 's/{SITESECTOR}/$SITESECTOR/g' $templates/$xmlFile > $netconfs/$nodename_$SITESECTOR.xml
     !sed -i 's/{RADIO}/$UNIT/g' $netconfs/$nodename_$SITESECTOR.xml
     !sed -i 's/{DIR}/$DIR/g' $netconfs/$nodename_$SITESECTOR.xml
     !sed -i 's/{SERIALX}/$serialx/g' $netconfs/$nodename_$SITESECTOR.xml
     !sed -i 's/{RETID}/$retIdx/g' $netconfs/$nodename_$SITESECTOR.xml
-  else if $input[4] ~ (2C)
+  else if $input[4] ~ (2C) && $2C_check != 1
     !sed 's/{SITESECTOR}/$SITESECTOR/g' $templates/$xmlFile > $netconfs/$nodename_$SITESECTOR.xml
     !sed -i 's/{RADIO}/$UNIT/g' $netconfs/$nodename_$SITESECTOR.xml
     !sed -i 's/{DIR}/$DIR/g' $netconfs/$nodename_$SITESECTOR.xml
