@@ -2,7 +2,7 @@
 //  AMOS|MOSHELL script to create RET Unit on Ericsson BaseBand Nodes
 //  script was written to Standarize RET implementation, verify and minimize user inputs and errors
 //  Script Name: define_RET.mos
-//  Update date: 21.05.2021
+//  Update date: 20.06.2021
 //
 //  make sure netconf files are in the correct PATH
 //  Written by Mervan AbuGhosh MervanA@git
