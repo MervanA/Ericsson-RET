@@ -9,10 +9,10 @@
 //
 //=======================================================================================
 //SYNTAX:
-//  run /mnt/e/Job/RET/Ericsson-RET/define_RET.mos SITESECTOR,RADIO,DIR,CONFIGID
+//  run /mnt/d/GDrive/Job/RET/Ericsson-RET/define_RET.mos SITESECTOR,RADIO,DIR,CONFIGID
 //  or
-//  run /mnt/e/Job/RET/Ericsson-RET/define_RET.mos --help
-//  run /mnt/e/Job/RET/Ericsson-RET/define_RET.mos --lookup ANTENNAID
+//  run /mnt/d/GDrive/Job/RET/Ericsson-RET/define_RET.mos --help
+//  run /mnt/d/GDrive/Job/RET/Ericsson-RET/define_RET.mos --lookup ANTENNAID
 //
 //Input:
 //  Input must be 4 fields seperated by ","
@@ -55,9 +55,9 @@
 l+mmos /dev/null
 uv sort_proxy=1
 confbdl+
-$logpath := /mnt/e/Job/RET/Ericsson-RET/logs
-$templates := /mnt/e/Job/RET/Ericsson-RET/templates
-$netconfs := /mnt/e/Job/RET/Ericsson-RET/netconfs
+$logpath := /mnt/d/GDrive/Job/RET/Ericsson-RET/logs
+$templates := /mnt/d/GDrive/Job/RET/Ericsson-RET/templates
+$netconfs := /mnt/d/GDrive/Job/RET/Ericsson-RET/netconfs
 
 
 ####################################
@@ -94,9 +94,9 @@ else if $all_input ~ ^$ || $all_input !~ $all_pattern || $all_input !~ --lookup 
   ! echo "Invalid Syntax!!"
   ! echo ""
   ! echo "Valid Syntax:"
-  ! echo "run /mnt/e/Job/RET/Ericsson-RET/define_RET.mos SITEX1,S1C1,D,4A"
-  ! echo "run /mnt/e/Job/RET/Ericsson-RET/define_RET.mos --lookup 065R15M18JKD"
-  ! echo "run /mnt/e/Job/RET/Ericsson-RET/define_RET.mos --help"
+  ! echo "run /mnt/d/GDrive/Job/RET/Ericsson-RET/define_RET.mos SITEX1,S1C1,D,4A"
+  ! echo "run /mnt/d/GDrive/Job/RET/Ericsson-RET/define_RET.mos --lookup 065R15M18JKD"
+  ! echo "run /mnt/d/GDrive/Job/RET/Ericsson-RET/define_RET.mos --help"
   ! echo "======================================================================================="
   unset small
   l-
@@ -111,7 +111,6 @@ fi
 ####################################
 
 ## verify SITESECTOR
-func SITESECTOR_FUNC
   $SITESECTOR = $input[1]
   $SITESECTORlen = `$gawk -v SS="$SITESECTOR" 'BEGIN{print length(SS)}'`
   if $SITESECTORlen != 6
@@ -127,10 +126,9 @@ func SITESECTOR_FUNC
   else
     $SITESECTOR = $input[1]
   fi
-endfunc
+
 
 ## verify RADIO
-func UNIT_FUNC
   mr sectorunit
   ma sectorunit FieldReplaceableUnit=[^1|SUP|BB].+$
   for $mo in sectorunit
@@ -154,10 +152,8 @@ func UNIT_FUNC
   fi
   mr sectorunit
   unset $check
-endfunc
 
 ## verify DIR
-func DIR_FUNC
   if $input[3] ~ [x|X|d|D]
     $DIR = XXX
   else
@@ -176,10 +172,8 @@ func DIR_FUNC
     l-
     return
   fi
-endfunc
 
 ## verify CONFIGID
-func CONFIGID_FUNC
   if $input[4] ~ (2A|2A|2B|2D|3A|3B|3B|3B|3C|4A|4A|4B|4B|4C|4D|4E|6A|6B|8B|8C|8D)
     $check = 1
     $xmlFile = $input[4]_netconf.xml
@@ -223,7 +217,7 @@ func CONFIGID_FUNC
     ! echo "  8C          AMB4519R18v06    HUAWEI      8x"
     ! echo "  8D          065R15M18JKD     Comba-ODI   8x"
     ! echo ""
-    ! echo "run /mnt/e/Job/RET/Ericsson-RET/define_RET.mos --lookup 065R15M18JKD"
+    ! echo "run /mnt/d/GDrive/Job/RET/Ericsson-RET/define_RET.mos --lookup 065R15M18JKD"
     ! echo ""
     ! echo "======================================================================================="
     unset small
@@ -231,7 +225,6 @@ func CONFIGID_FUNC
     return
   fi
   unset $check
-endfunc
 
 ## 1X FUNCTION
 func singelSerial_FUNC
@@ -319,17 +312,9 @@ endfunc
 
 
 ####################################
-## Sequence FUNCTIONS
-####################################
-SITESECTOR_FUNC
-UNIT_FUNC
-DIR_FUNC
-CONFIGID_FUNC
-ANTENNA_FUNC
-
-####################################
 ## PREP
 ####################################
+ANTENNA_FUNC
 TEMPLATE_FUNC
 
 
@@ -341,7 +326,7 @@ if $nr_of_lines != 0
   confbdl-
   l-
   ##
-  l+s $logpath/$nodename_RETinput.log
+  l+s $logpath/$nodename_confRET.log
   netconf $netconfs/$nodename_$SITESECTOR.xml
   ###
   lt AuPort|RetSubUnit|AntennaNearUnit|AntennaSubunit|AntennaUnitGroup
