@@ -9,10 +9,10 @@
 //
 //=======================================================================================
 //SYNTAX:
-//  run /mnt/d/GDrive/Job/RET/Ericsson-RET/define_RET.mos SITESECTOR,RADIO,DIR,CONFIGID
+//  run /PATH/TO/define_RET.mos SITESECTOR,RADIO,DIR,CONFIGID
 //  or
-//  run /mnt/d/GDrive/Job/RET/Ericsson-RET/define_RET.mos --help
-//  run /mnt/d/GDrive/Job/RET/Ericsson-RET/define_RET.mos --lookup ANTENNAID
+//  run /PATH/TO/define_RET.mos --help
+//  run /PATH/TO/define_RET.mos --lookup ANTENNAID
 //
 //Input:
 //  Input must be 4 fields seperated by ","
@@ -55,9 +55,10 @@
 l+mmos /dev/null
 uv sort_proxy=1
 confbdl+
-$logpath := /mnt/d/GDrive/Job/RET/Ericsson-RET/logs
-$templates := /mnt/d/GDrive/Job/RET/Ericsson-RET/templates
-$netconfs := /mnt/d/GDrive/Job/RET/Ericsson-RET/netconfs
+$mainpath := /mnt/d/GDrive/Job/RET/Ericsson-RET
+$logpath := $mainpath/logs
+$templates := $mainpath/templates
+$netconfs := $mainpath/netconfs
 
 
 ####################################
@@ -94,9 +95,9 @@ else if $all_input ~ ^$ || $all_input !~ $all_pattern || $all_input !~ --lookup 
   ! echo "Invalid Syntax!!"
   ! echo ""
   ! echo "Valid Syntax:"
-  ! echo "run /mnt/d/GDrive/Job/RET/Ericsson-RET/define_RET.mos SITEX1,S1C1,D,4A"
-  ! echo "run /mnt/d/GDrive/Job/RET/Ericsson-RET/define_RET.mos --lookup 065R15M18JKD"
-  ! echo "run /mnt/d/GDrive/Job/RET/Ericsson-RET/define_RET.mos --help"
+  ! echo "run /PATH/TO/define_RET.mos SITEX1,S1C1,D,4A"
+  ! echo "run /PATH/TO/define_RET.mos --lookup 065R15M18JKD"
+  ! echo "run /PATH/TO/define_RET.mos --help"
   ! echo "======================================================================================="
   unset small
   l-
@@ -250,7 +251,7 @@ endfunc
     ! echo "  8C          AMB4519R18v06    HUAWEI      8x"
     ! echo "  8D          065R15M18JKD     Comba-ODI   8x"
     ! echo ""
-    ! echo "run /mnt/d/GDrive/Job/RET/Ericsson-RET/define_RET.mos --lookup 065R15M18JKD"
+    ! echo "run /PATH/TO/define_RET.mos --lookup 065R15M18JKD"
     ! echo ""
     ! echo "======================================================================================="
     unset small
