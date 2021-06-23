@@ -1,26 +1,26 @@
-CONFIGID	ANTENNA-MODEL		VENDOR			xPOL		uniqueID											AntennaNearUnitId
-4B			AE-7647-0001		ASELSAN			4x			R1, Y1, Y2, Y3										RET2, RET1, RET3, RET4
-2A			2LPX0412R			BROADRADIO		2x			1, 2												RET1, RET4
-3B			UL2PX506R-C			BROADRADIO		3x			R1, Y1, Y2											RET2, RET1, RET4
-3B			ULLPX206R-C			BROADRADIO		3x			R1, Y1, Y2											RET2, RET1, RET4
-3B			ULLPX506R-C			BROADRADIO		3x			R1, Y1, Y2											RET2, RET1, RET4
-3B			UL2PX206.12R-E2		BROADRADIO		3x			R1, Y1, Y2											RET2, RET1, RET4
-2A			ODDI-032R20J-G		Comba-ODI		2x			1, 2												RET1, RET4
-4A			ODI-15E18KJJ-G		Comba-ODI		4x			R1, Y1, B1, Y2										RET2, RET1, RET3, RET4
-4A			ODI-12E15KJJ-G		Comba-ODI		4x			R1, Y1, B1, Y3										RET2, RET1, RET3, RET5
-4A			15E18K18J18J		Comba-ODI		4x			R1, Y1, B1, Y2										RET2, RET1, RET3, RET4
-4B			ODI065R15M18JJJ		Comba-ODI		4x			R1, Y1, Y2, Y3										RET2, RET1, RET3, RET4
-4E			ODI-65R12M15JJJ		Comba-ODI		4x			01, 04, 03, 02										RET2, RET1, RET3, RET4
-6A			65R15M18JKDKD2		Comba-ODI		6x			R1, B1, B2, Y1, Y2, Y3								RET2, RET1, RET4, RET3, RET5, RET8
-8D			065R15M18JKD		Comba-ODI		8x			05, 08, 07, 06, 03, 02, 04, 01						RET2, RET6, RET3, RET7, RET1, RET4, RET5, RET8
-2B			ADU4517R3			HUAWEI			2x			r, b												RET2, RET3
-2C			AMB4520R0			HUAWEI			2x			y, yy												RET1, RET4
-2D			AMB4520R8v06		HUAWEI			2x			y1, y2												RET1, RET4
-3A			ATR4518R4			HUAWEI			3x			r, yL, yyR											RET2, RET1, RET4
-8B			AOC4518R13v06		HUAWEI			8x			r1, r2, y1, y4, b1, b2, y2, y3						RET2, RET6, RET3, RET7, RET1, RET4, RET5, RET8
-8C			AMB4519R18v06		HUAWEI			8x			r1, r2, y5, y6, y1, y2, y3, y4						RET2, RET6, RET3, RET7, RET1, RET4, RET5, RET8
-1X			ARETU				KATHREIN		1x			SERIAL												RETID
-1X			ARETUV01			KATHREIN		1x			SERIAL-XX											RETID
-3C			80010727			KATHREIN		3x			Y1, Y2, Y3											RET1, RET3, RET4
-6B			MS-12H180			MatSing			6xBEAM		001B00, 001B02, 001B01, 001B03, 001B12, 001B14		RET2, RET1, RET4, RET3, RET5, RET8
-4D			TQB					TONGYU			4x			0, 1, 2, 3											RET2, RET1, RET3, RET4
+CONFIGID    ANTENNA-MODEL       VENDOR     xPOL         uniqueID                                            AntennaNearUnitId
+4B          AE-7647-0001        ASELSAN    4x           R1, Y1, Y2, Y3                                      RET2, RET1, RET3, RET4
+2A          2LPX0412R           BROADRADIO 2x           1, 2                                                RET1, RET4
+3B          UL2PX506R-C         BROADRADIO 3x           R1, Y1, Y2                                          RET2, RET1, RET4
+3B          ULLPX206R-C         BROADRADIO 3x           R1, Y1, Y2                                          RET2, RET1, RET4
+3B          ULLPX506R-C         BROADRADIO 3x           R1, Y1, Y2                                          RET2, RET1, RET4
+3B          UL2PX206.12R-E2     BROADRADIO 3x           R1, Y1, Y2                                          RET2, RET1, RET4
+2A          ODDI-032R20J-G      Comba-ODI  2x           1, 2                                                RET1, RET4
+4A          ODI-15E18KJJ-G      Comba-ODI  4x           R1, Y1, B1, Y2                                      RET2, RET1, RET3, RET4
+4A          ODI-12E15KJJ-G      Comba-ODI  4x           R1, Y1, B1, Y3                                      RET2, RET1, RET3, RET4
+4A          15E18K18J18J        Comba-ODI  4x           R1, Y1, B1, Y2                                      RET2, RET1, RET3, RET4
+4B          ODI065R15M18JJJ     Comba-ODI  4x           R1, Y1, Y2, Y3                                      RET2, RET1, RET3, RET4
+4E          ODI-65R12M15JJJ     Comba-ODI  4x           01, 04, 03, 02                                      RET2, RET1, RET3, RET4
+6A          65R15M18JKDKD2      Comba-ODI  6x           R1, B1, B2, Y1, Y2, Y3                              RET2, RET1, RET4, RET3, RET5, RET8
+8D          065R15M18JKD        Comba-ODI  8x           05, 08, 07, 06, 03, 02, 04, 01                      RET2, RET6, RET3, RET7, RET1, RET4, RET5, RET8
+2B          ADU4517R3           HUAWEI     2x           r, b                                                RET2, RET3
+2C          AMB4520R0           HUAWEI     2x           y, yy                                               RET1, RET4
+2D          AMB4520R8v06        HUAWEI     2x           y1, y2                                              RET1, RET4
+3A          ATR4518R4           HUAWEI     3x           r, yL, yyR                                          RET2, RET1, RET4
+8B          AOC4518R13v06       HUAWEI     8x           r1, r2, y1, y4, b1, b2, y2, y3                      RET2, RET6, RET3, RET7, RET1, RET4, RET5, RET8
+8C          AMB4519R18v06       HUAWEI     8x           r1, r2, y5, y6, y1, y2, y3, y4                      RET2, RET6, RET3, RET7, RET1, RET4, RET5, RET8
+1X          ARETU               KATHREIN   1x           SERIAL                                              RETID
+1X          ARETUV01            KATHREIN   1x           SERIAL-XX                                           RETID
+3C          80010727            KATHREIN   3x           Y1, Y2, Y3                                          RET1, RET3, RET4
+6B          MS-12H180           MatSing    6xBEAM       001B00, 001B02, 001B01, 001B03, 001B12, 001B14      RET2, RET1, RET4, RET3, RET5, RET8
+4D          TQB                 TONGYU     4x           0, 1, 2, 3                                          RET2, RET1, RET3, RET4
