@@ -5,12 +5,10 @@
         <capability>urn:com:ericsson:ebase:0.1.0</capability>
         <capability>urn:com:ericsson:ebase:1.1.0</capability>
     </capabilities>
-</hello>
-]]>]]>
-<rpc message-id="ARETUV01 or ARETU" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+</hello>]]>]]><rpc message-id="ARETUV01 or ARETU" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
     <edit-config>
         <target>
-            <running />
+            <running></running>
         </target>
         <config xmlns:xc="urn:ietf:params:xml:ns:netconf:base:1.0">
             <ManagedElement>
@@ -55,7 +53,7 @@
                         <AntennaUnit>
                             <antennaUnitId>1</antennaUnitId>
                             <AntennaSubunit>
-                                <antennaSubunitId>1</antennaSubunitId>
+                                <antennaSubunitId>{SUBID}</antennaSubunitId>
                                 <retSubunitRef>ManagedElement=1,Equipment=1,AntennaUnitGroup={RADIO},AntennaNearUnit={RETID},RetSubUnit=1</retSubunitRef>
                             </AntennaSubunit>
                         </AntennaUnit>
@@ -64,9 +62,6 @@
             </ManagedElement>
         </config>
     </edit-config>
-</rpc>
-]]>]]>
-<rpc message-id="close-session" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
-    <close-session />
-</rpc>
-]]>]]>
+</rpc>]]>]]><rpc message-id="close-session" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+    <close-session></close-session>
+</rpc>]]>]]>

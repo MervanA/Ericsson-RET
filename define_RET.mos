@@ -2,7 +2,7 @@
 //  AMOS|MOSHELL script to create RET Unit on Ericsson BaseBand Nodes
 //  script was written to Standarize RET implementation, verify and minimize user inputs and errors
 //  Script Name: define_RET.mos
-//  Update date: 20.06.2021
+//  Update date: 12.07.2021
 //
 //  make sure netconf files are in the correct PATH
 //  Written by Mervan AbuGhosh MervanA@git
@@ -55,7 +55,7 @@
 l+mmos /dev/null
 uv sort_proxy=1
 confbdl+
-$mainpath := /mnt/d/GDrive/Job/RET/Ericsson-RET
+$mainpath := /home/shared/erc_os/scripts_4g/RET/
 $logpath := $mainpath/logs
 $templates := $mainpath/templates
 $netconfs := $mainpath/netconfs
@@ -184,7 +184,9 @@ func singelSerial_FUNC
     $serialx = readinput(please provide ARETU Serial Number:  )
     $retIdx = readinput(please provide the RET Id:  )
     if $serialx !~ ^$ && $retIdx ~ ^RET[1-8][0-6]?$
-       break
+      $subIdx = $retIdx -s ^...
+      $subIdx = B$subIdx
+      break
     else
       $1X_check = 1
     fi
@@ -276,7 +278,7 @@ endfunc
 
 ### AntennaUnit and AntennaSubunit Structure
 func ANTENNA_FUNC
-  if $UNIT ~ [2|4]$
+  if $UNIT ~ [2|4]$ || $UNIT ~ C2C7
     get SectorCarrier=$UNIT noOfTxAntennas > $noOfTx
     prs $UNITRDN,RfPort=[^R]
     $noOfRf = $nr_of_mos
@@ -301,6 +303,7 @@ func TEMPLATE_FUNC
     !sed -i 's/{RADIO}/$UNIT/g' $netconfs/$nodename_$SITESECTOR.xml
     !sed -i 's/{DIR}/$DIR/g' $netconfs/$nodename_$SITESECTOR.xml
     !sed -i 's/{SERIALX}/$serialx/g' $netconfs/$nodename_$SITESECTOR.xml
+    !sed -i 's/{SUBID}/$subIdx/g' $netconfs/$nodename_$SITESECTOR.xml
     !sed -i 's/{RETID}/$retIdx/g' $netconfs/$nodename_$SITESECTOR.xml
   else if $input[4] ~ (2C) && $2C_check != 1
     !sed 's/{SITESECTOR}/$SITESECTOR/g' $templates/$xmlFile > $netconfs/$nodename_$SITESECTOR.xml
